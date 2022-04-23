@@ -1,0 +1,149 @@
+{
+    "HomeHeader":{
+        "About": "About Us",
+        "Teacher": "Teacher",
+        "Student": "Student",
+        "ResultOfStudy": "Result Of Study",
+        "welcome": "Welcome",
+        "news": "News"
+    },
+
+    "banner":{
+        "DEPARTMENTOFEDUCATIONCANTHOCITY": "DEPARTMENT OF EDUCATION AN GIANG PROVINCE",
+        "TRITHUCHIGHSCHOOL":"TRAN VAN THANH HIGH SCHOOL",
+        "TeachingAssignment":"Teaching Assignment",
+        "ClassList": "Class",        
+        "Activities": "Activities",
+        "Notification": "Notification"
+    },
+    "menu": {
+        "system": {
+            "header": "System",
+            "system-administrator": {
+                "header": "System Administrator",
+                "user-manage": "User manage",
+                "user-redux": "manage user using redux",
+                "register-package-group-or-account": "Register service package for group/account"
+            },
+            "system-parameter": {
+                "header": "System-parameter"
+            }
+        },
+
+        "admin":{
+            "manage-user": "User",
+            "manage-teacher": "Manage Teacher",
+            "manage-admin": "Manage Admin",
+            "crud": "Crud user",
+            "crud-redux": "Crud redux",
+            "grade": "Grade",
+            "grade-10": "Grade 10",
+            "class": "Class",
+            "manegeClass": "Classroom management",
+            "grade-11": "Grade 11",
+            "grade-12": "Grade 12",
+            "manage-class": "Manage Class",
+            "PC":"Assignment",
+            "PCGD": "Teaching Assignment",
+
+            "subject":"Subject",
+            "subject-math":"Math",
+            "subject-literature": "Literature",
+            "subject-english": "English",
+            "subject-physics": "Physics",
+            "subject-chemistry": "Chemistry",
+            "subject-civic-education": "Civic Education",
+            "subject-history": "History",
+            "subject-geography": "Geography",
+            "subject-biology": "Biology",
+            "subject-technology": "Technology",
+            "subject-exercise": "Exercise",
+            "subject-it": "Informatics",
+            "subject-de": "Defense Education",
+
+            "point": "Points",
+            "manage-point": "Manage Point",
+            "Conduct": "Conduct",
+            "manage-Conduct": "Manage Conduct",
+            "news": "News",
+            "manage-news": "Manage News",
+
+            "about-teacher": "More Information About Teachers"
+        }
+    },
+
+    "class":{
+        "QLClass":"Classroom management",
+        "class": "Class name",
+        "year": "School year",
+        "grade": "Grade",
+        "edit": "Edit",
+        "save": "Save"
+    },
+
+    "manage-hocsinh": {
+        "add": "Add Students",
+        "ht": "Student Name:",
+        "gt": "Gender",
+        "ns": "Date of birth:",
+        "sdt": "Phone number:",
+        "mail": "Email: ",
+        "dc": "Address:",
+        "htc": "Father's Name:",
+        "nsc": "Father's Birthday:",
+        "htm": "Mother's Name:",
+        "nsm": "Mother's Birthday: ",
+        "mk": "Password",
+        "them": "ADD",
+        "nh": "school year",
+        "lop": "Class",
+        "tg": "Religion",
+        "hk": "Semester",
+        "img": "student avatar",
+        "edit": "Edit Student"
+    },
+
+    "manage-GiaoVien": {
+        "add": "Add Teacher",
+        "ht": "Teacher's Name:",
+        "gt": "Gender:",
+        "ns": "Date of birth:",
+        "sdt": "Phone number:",
+        "mail": "Email: ",
+        "dc": "Address: ",
+        "mk": "Password",
+        "them": "Add",
+        "tg": "Religion",
+        "cd": "Title",
+        "cm": "Subject",
+        "img": "Avatar teacher",
+        "edit": "Edit Student"
+    },
+
+    "homePage": {
+        "subject": "Subject",
+        "addView": "See More"
+    },
+
+    "teacher": {
+        "about": "MORE TEACHER INFORMATION",
+        "select": "Choose a teacher",
+        "introduce": "Introduction information",
+        "save": "Save Information"
+    },
+
+    "news": {
+        "about": "News",
+        "introduce": "Introduction information",
+        "tintuc": "Information",
+        "save": "Save Information",
+        "ten": "Title",
+        "edit": "Edit Information",
+        "anh": "Avatar"
+    },
+
+    "thongbao": {
+        "title": "News - Announcement",
+        "more": "See More"
+    }
+}

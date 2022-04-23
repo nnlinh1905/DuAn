@@ -1,0 +1,267 @@
+.section-Share{
+    &.section-ThongBao{
+        background: #f5f5f5;
+    }
+
+    &.section-BoMon{
+        background: rgb(230, 229, 229);
+    }
+
+    &.section-about{
+        background: rgb(230, 229, 229);
+        height: 500px !important;
+    }
+
+    &.section-HoatDong{
+        height: 450px !important;
+    }
+    
+    .section-body{
+
+            .section-custom{
+                cursor: pointer;
+                .img_anh{
+                    width: 300px;
+                    height: 200px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size:cover;
+                    background-color: #eee;
+
+                    &.section-ThongBao{
+                        // background: url('../../assets/ThongBaoIMG/anh.jfif');
+                    }
+
+                    &.section-BoMon{
+                        // background: url('../../assets/MonHocIMG/math.jpg');
+                    }
+
+                    
+                }
+                .name{
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 18px;
+                    margin-top: 8px;
+                }
+            }
+        }
+}
+
+.section-Share{
+    height:350px;
+    .section-container{
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header{
+            height: 60px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+
+            .title-section{
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .btn-section{
+                float: right;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                display: block;
+                background: #ebebeb;
+                color: black;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 20px;
+
+                &:hover{
+                    float: right;
+                    padding: 10px 15px;
+                    border: none;
+                    outline: none;
+                    display: block;
+                    background: yellow;
+                    color: #d7d7d7;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-size: 20px;
+
+                }
+            }
+        }
+    }
+}
+
+
+.slick-prev{
+    left: -10px !important; 
+    height:45px !important;
+    width: 50px !important;
+    z-index: 100;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover{
+        background: #e4e4e4 !important
+    }
+}
+
+.slick-prev:before{
+    // content: "\e257" !important;
+    font-family: FontAwesome !important;
+    color: blue !important;
+}
+
+.slick-next{
+    right: 15px !important; 
+    height:45px !important;
+    width: 50px !important;
+    z-index: 100;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover{
+        background: #e4e4e4 !important
+    }
+}
+
+.slick-disabled{
+    display: none !important
+}
+
+.slick-next:before{
+    // content: "\e258" !important;
+    font-family: FontAwesome !important;
+    color: green !important;
+}
+
+.HomeFooter{
+    text-align: center;
+    padding: 18px 0 0 0;
+    background: #c5d9ec;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    a{
+        text-decoration: unset;
+    }
+}
+
+.section-about{
+    .about-container{
+        margin: 0 100px;
+        .section-about-header{
+            padding: 20px 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .section-about-content{
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            .content-left{
+                width: 60%;
+            }
+
+            .content-right{
+                width: 40%;
+                p{
+                    text-align: justify;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+.section-HoatDong{
+    background: #f5f5f5;
+    .section-center{
+        margin: 0 100px;
+        display: flex;
+        gap: 15px;
+        height: 450px; 
+        padding:10px 0;
+
+        .center-left{
+            width: 50%;
+            border: 1px solid #0dcaf0;
+            .header{
+                padding: 20px 0;
+                font-size: 22px;
+                font-weight: 600;
+                text-align: center;
+                background-color: #0dcaf0;
+            }
+            .left-content{
+                width: 100%;
+                height: 355px;
+                display: flex;
+                gap: 10px;
+
+                .left-content-left{
+                    width: 40%;
+                    .img-tvt{
+                        background: url('../../assets/tvt.jpg');
+                        height: 100%;
+                        width: 100%;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size:cover;
+                    }
+                }
+
+                .left-content-right{
+                    width: 60%;
+                }
+            }
+        }
+
+        .center-right{
+            width: 50%;
+            border: 1px solid #0dcaf0;
+            .header{
+                padding: 20px 0;
+                font-size: 22px;
+                font-weight: 600;
+                text-align: center;
+                background-color: #0dcaf0;
+            }
+
+            .right-content{
+                padding: 10px 40px;
+                .section-custom{
+                    .img_anh{
+                        width: 100%;
+                        height: 300px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size:cover;
+                        background-color: #eee;
+
+                        &.section-HoatDong{
+                            background: url('../../assets/HoatDongIMG/hd.jpg');
+                        }
+                    }
+                }
+
+                // viết đè
+                .slick-next{
+                    right: -23px !important; 
+                    
+
+                    &:hover{
+                        background: #e4e4e4 !important
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,153 @@
+{
+
+    "HomeHeader":{
+        "About": "Giới Thiệu",
+        "Teacher": "Giáo Viên",
+        "Student": "Học Sinh",
+        "news": "Tin Tức",
+        "ResultOfStudy": "Kết Quả Học Tập",
+        "welcome": "Xin Chào" 
+    },
+
+    "banner":{
+        "DEPARTMENTOFEDUCATIONCANTHOCITY": "SỞ GIÁO VÀ ĐÀO TẠO TỈNH AN GIANG",
+        "TRITHUCHIGHSCHOOL":"TRƯỜNG TRUNG HỌC PHỔ THÔNG TRẦN VĂN THÀNH",
+        "TeachingAssignment":"Phân Công Giảng Dạy",
+        "ClassList": "Danh Sách Các Lớp",        
+        "Activities": "Hoạt Động Ngoại Khóa",
+        "Notification": "Thông Báo"
+    },
+    "menu": {
+        "system": {
+            "header": "Hệ thống",
+            "system-administrator": {
+                "header": "Quản trị hệ thống",
+                "user-manage": "Quản lý người sử dụng",
+                "user-redux": "Quản lý người dùng",
+                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
+            },
+            "system-parameter": {
+                "header": "Tham số hệ thống"
+            }
+        },
+
+        "admin":{
+            "manage-user": "Người dùng",
+            "manage-teacher": "Quản lý giáo viên",
+            "manage-admin": "Quản lý Admin",
+            "crud": "Crud user",
+            "crud-redux": "Crud redux",
+            "grade": "Khối",
+            "class": "Lớp học",
+            "manegeClass": "Quản lý lớp học",
+            "grade-10": "Khối 10",
+            "grade-11": "Khối 11",
+            "grade-12": "Khối 12",
+            "manage-class": "Quản lý lớp học",
+            "subject":"Bô môn",
+            "subject-math":"Toán",
+            "subject-literature": "Ngữ Văn",
+            "subject-english": "Anh Văn",
+            "subject-physics": "Vật Lý",
+            "subject-chemistry": "Hóa Học",
+            "subject-history": "Lịch Sử",
+            "subject-civic-education": "Giáo Dục Công Dân",
+            "subject-geography": "Địa Lý",
+            "subject-biology": "Sinh Học",
+            "subject-technology": "Công Nghệ",
+            "subject-exercise": "Giáo Dục Thể Chất",
+            "subject-it": "Tin Học",
+            "subject-de": "Giáo Dục Quốc Phòng",
+            "PC": "Phân Công",
+            "PCGD":"Phân Công Giảng Dạy",
+
+
+            "point": "Điểm",
+            "manage-point": "Quản Lý Điểm",
+            "Conduct": "Hạnh kiểm",
+            "manage-Conduct": "Quản Lý hạnh Kiểm",
+            "news": "Tin Tức",
+            "manage-news": "Quản Lý Tin Tức",
+
+
+            "about-teacher": "Thêm Thông Tin Giáo Viên"
+        }
+    },
+
+    "manage-hocsinh": {
+        "add": "Thêm Học Sinh",
+        "ht": "Họ Tên Học Sinh:",
+        "gt": "Giới Tính:",
+        "ns": "Ngày Sinh:",
+        "sdt": "Số Điện Thoại:",
+        "mail": "Email: ",
+        "dc": "Địa Chỉ: ",
+        "htc": "Họ Tên Cha: ",
+        "nsc": "Ngày Sinh Cha: ",
+        "htm": "Họ Tên Mẹ: ",
+        "nsm": "Ngày Sinh mẹ: ",
+        "mk": "Mật Khẩu",
+        "them": "Thêm",
+        "nh": "Năn Học",
+        "lop": "Lớp học",
+        "tg": "Tôn Giáo",
+        "hk": "Học Kỳ",
+        "img": "Ảnh Học Sinh",
+        "edit": "Lưu Thay Đổi"
+    },
+
+    "class":{
+        "QLClass":"Quản Lý Lớp Học",
+        "class": "Tên Lớp",
+        "year": "Năm Học",
+        "grade": "Khối",
+        "edit": "Sửa",
+        "save": "Lưu"
+    },
+
+
+    "manage-GiaoVien": {
+        "add": "Thêm Giáo Viên",
+        "ht": "Họ Tên Giáo Viên:",
+        "gt": "Giới Tính:",
+        "ns": "Ngày Sinh:",
+        "sdt": "Số Điện Thoại:",
+        "mail": "Email: ",
+        "dc": "Địa Chỉ: ",
+        "mk": "Mật Khẩu: ",
+        "them": "Thêm ",
+        "tg": "Tôn Giáo: ",
+        "cd": "Chức Danh: ",
+        "cm": "Chuyên Môn: ",
+        "img": "Ảnh Giáo Viên: ",
+        "edit": "Lưu Thay Đổi"
+    },
+
+    "homePage": {
+        "subject": "Bộ môn",
+        "addView": "Xem Thêm"
+    },
+
+    "teacher": {
+        "about": "THÊM THÔNG TIN GIÁO VIÊN",
+        "select": "Chọn giáo viên",
+        "introduce": "Thông tin giới thiệu",
+        "save": "Lưu Thông Tin"
+    },
+
+
+    "news": {
+        "about": "TIN TỨC",
+        "introduce": "Thông Tin Giới Thiệu",
+        "tintuc": "Thông Tin",
+        "save": "Lưu Thông Tin",
+        "ten": "Tiêu Đề",
+        "edit": "Sửa Thông Tin",
+        "anh": "Ảnh đại diện"
+    },
+
+    "thongbao": {
+        "title": "Tin Tức - Thông báo",
+        "more": "Xem Thêm"
+    }
+}

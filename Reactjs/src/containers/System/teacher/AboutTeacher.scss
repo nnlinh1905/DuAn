@@ -1,0 +1,37 @@
+.teacher-container{
+    .teacher-about-title{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 15px;
+        color: #0071ba;
+    }
+
+    .more-information{
+        display: flex;
+        gap: 15px;
+        padding-bottom: 15px;
+
+        .content-left{
+            width: 40%;
+        }
+
+        .content-right{
+            width: 60%;
+        }
+    }
+
+    .btn-save{
+        .save-content-teacher{
+            margin: 20px 0 0 30px;
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            background: orange;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
