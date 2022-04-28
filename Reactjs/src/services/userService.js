@@ -115,4 +115,17 @@ const teacherByClass = (idClass) => {
     return axios.get(`/api/get-teacher-by-class?malop=${idClass}`);
 }
 
-export {teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }
+const nameSubject = (id) => {
+    return axios.get(`/api/get-name-subject?id=${id}`);
+}
+
+const getAllTeaching = (data) => {
+    return axios.put('/api/edit-teaching', data) 
+}
+
+const getEditTeaching = (data) => {
+    return axios.put('/api/edit-chairman', data) 
+}
+
+
+export {getEditTeaching,getAllTeaching,nameSubject,teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }

@@ -45,7 +45,8 @@
             "manage-class": "Manage Class",
             "PC":"Assignment",
             "PCGD": "Teaching Assignment",
-
+            "chairman": "Homeroom Teacher",
+            
             "subject":"Subject",
             "subject-math":"Math",
             "subject-literature": "Literature",
@@ -145,5 +146,15 @@
     "thongbao": {
         "title": "News - Announcement",
         "more": "See More"
+    },
+
+    "chairman": {
+        "chairman-title": "Managing Homeroom Teachers",
+        "class": "Class",
+        "select": "Select...",
+        "chairman": "Chairman",
+        "year": "School year",
+        "homeroom-teacher": "Homeroom teacher",
+        "edit": "Edit"
     }
 }

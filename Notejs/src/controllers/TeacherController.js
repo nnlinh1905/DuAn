@@ -116,5 +116,5 @@ module.exports = {
     getAllCode: getAllCode,
     handleInforTeacher: handleInforTeacher,
     handleGetDetailTeacher: handleGetDetailTeacher,
-    handleGetTeacherBySubject:handleGetTeacherBySubject
+    handleGetTeacherBySubject: handleGetTeacherBySubject,
 }

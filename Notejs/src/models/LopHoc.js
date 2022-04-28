@@ -10,16 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this methaod automatically.
      */
     static associate(models) {
-      LopHocs.belongsTo(models.allcodes, { foreignKey: 'NamHoc', target: 'keyMap', as: 'NamHocNe' })
-      LopHocs.belongsTo(models.allcodes, { foreignKey: 'MaKhoi', target: 'keyMap', as: 'MaKhoiData' })
+      LopHocs.belongsTo(models.allcodes, { foreignKey: 'NamHoc', targetKey: 'keyMap', as: 'NamHocNe' })
+      LopHocs.belongsTo(models.allcodes, { foreignKey: 'MaKhoi', targetKey: 'keyMap', as: 'MaKhoiData' })
       
-      LopHocs.hasMany(models.GiangDays, {foreignKey: 'MaLop', as: 'LopData'})
+      LopHocs.hasMany(models.GiangDays, { foreignKey: 'id', as: 'LopData' })
+
+      LopHocs.belongsTo(models.GiaoViens, { foreignKey: 'ChuNhiem', targetKey: 'id', as: 'LopGiaoVien' })
     }
   };
     LopHocs.init({
     NamHoc: DataTypes.STRING,
     MaKhoi: DataTypes.STRING,
-    TenLop: DataTypes.STRING
+    TenLop: DataTypes.STRING,
+    ChuNhiem: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'LopHocs',

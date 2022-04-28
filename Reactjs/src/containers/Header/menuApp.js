@@ -43,6 +43,9 @@ export const adminMenu = [
             {
                 name: 'menu.admin.PCGD', link: '/system/assignment'
             },
+            {
+                name: "menu.admin.chairman", link: '/system/chairman'
+            }
         ]
     },
     { //Quản Lý Điểm
@@ -51,17 +54,10 @@ export const adminMenu = [
             {
                 name: "menu.admin.manage-point", link: 'system/user/manage-point'
             }
+            
         ]
     },
-    { //Quản Lý Hạnh Kiểm
-        name: 'menu.admin.Conduct',
-        menus: [
-            {
-                name: "menu.admin.manage-Conduct", link: 'system/user/manage-Conduct'
-            }
-        ]
-    },
-    { //Quản Lý Hạnh Kiểm
+    { //Quản Lý Tin Tức
         name: 'menu.admin.news',
         menus: [
             {

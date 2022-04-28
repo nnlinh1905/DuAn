@@ -6,7 +6,8 @@ import MarkdownIt from 'markdown-it';
 import 'react-markdown-editor-lite/lib/index.css';
 import './Assignment.scss';
 import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../../utils';
-
+import { nameSubject } from '../../../../services/userService';
+import TableA from './TableA';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 class Assignment extends Component {
@@ -66,7 +67,7 @@ class Assignment extends Component {
         this.props.allClass();
         this.props.allTeachers();
         this.props.fetchSubjectStart();
-        this.props.teachersByLop('18')
+        this.props.teachersByLop()
         this.props.teacherByMath();
         this.props.teacherByVan();
         this.props.teacherByAnh();
@@ -97,119 +98,109 @@ class Assignment extends Component {
             let ToanArr = this.props.byMath
             this.setState({
                 byMathArr: ToanArr,
-                Toan: ToanArr && ToanArr.length > 0 ? ToanArr[0].id : '',
+                // Toan: ToanArr && ToanArr.length > 0 ? ToanArr[0].id : '',
             })
         }
         if (prevProps.byVan !== this.props.byVan) {
             let VanArr = this.props.byVan
             this.setState({
                 byVanArr: VanArr,
-                Van: VanArr && VanArr.length > 0 ? VanArr[0].id : '',
+                // Van: VanArr && VanArr.length > 0 ? VanArr[0].id : '',
             })
         }
         if (prevProps.byAnh !== this.props.byAnh) {
             let AnhArr = this.props.byAnh
             this.setState({
                 byAnhArr: AnhArr,
-                Anh: AnhArr && AnhArr.length > 0 ? AnhArr[0].id : '',
+                // Anh: AnhArr && AnhArr.length > 0 ? AnhArr[0].id : '',
             })
         }
         if (prevProps.byLy !== this.props.byLy) {
             let LyArr = this.props.byLy
             this.setState({
                 byLyArr: LyArr,
-                Ly: LyArr && LyArr.length > 0 ? LyArr[0].id : '',
+                // Ly: LyArr && LyArr.length > 0 ? LyArr[0].id : '',
             })
         }
         if (prevProps.byHoa !== this.props.byHoa) {
             let HoaArr = this.props.byHoa
             this.setState({
                 byHoaArr: HoaArr,
-                Hoa: HoaArr && HoaArr.length > 0 ? HoaArr[0].id : '',
+                // Hoa: HoaArr && HoaArr.length > 0 ? HoaArr[0].id : '',
             })
         }
         if (prevProps.bySinh !== this.props.bySinh) {
             let SinhArr = this.props.bySinh
             this.setState({
                 bySinhArr: SinhArr,
-                Sinh: SinhArr && SinhArr.length > 0 ? SinhArr[0].id : '',
+                // Sinh: SinhArr && SinhArr.length > 0 ? SinhArr[0].id : '',
             })
         }
         if (prevProps.bySu !== this.props.bySu) {
             let SuArr = this.props.bySu
             this.setState({
                 bySuArr: SuArr,
-                Su: SuArr && SuArr.length > 0 ? SuArr[0].id : '',
+                // Su: SuArr && SuArr.length > 0 ? SuArr[0].id : '',
             })
         }
         if (prevProps.byDia !== this.props.byDia) {
             let DiaArr = this.props.byDia
             this.setState({
                 byDiaArr: DiaArr,
-                Dia: DiaArr && DiaArr.length > 0 ? DiaArr[0].id : '',
+                // Dia: DiaArr && DiaArr.length > 0 ? DiaArr[0].id : '',
             })
         }
         if (prevProps.byGDCD !== this.props.byGDCD) {
             let GDCDArr = this.props.byGDCD
             this.setState({
                 byGDCDArr: GDCDArr,
-                GDCD: GDCDArr && GDCDArr.length > 0 ? GDCDArr[0].id : '',
+                // GDCD: GDCDArr && GDCDArr.length > 0 ? GDCDArr[0].id : '',
             })
         }
         if (prevProps.byGDQP !== this.props.byGDQP) {
             let GDQPArr = this.props.byGDQP
             this.setState({
                 byGDQPArr: GDQPArr,
-                GDQP: GDQPArr && GDQPArr.length > 0 ? GDQPArr[0].id : '',
+                // GDQP: GDQPArr && GDQPArr.length > 0 ? GDQPArr[0].id : '',
             })
         }
         if (prevProps.byCN !== this.props.byCN) {
             let CNArr = this.props.byCN
             this.setState({
                 byCNArr: CNArr,
-                CN: CNArr && CNArr.length > 0 ? CNArr[0].id : '',
+                // CN: CNArr && CNArr.length > 0 ? CNArr[0].id : '',
             })
         }
         if (prevProps.byTin !== this.props.byTin) {
             let TinArr = this.props.byTin
             this.setState({
                 byTinArr: TinArr,
-                Tin: TinArr && TinArr.length > 0 ? TinArr[0].id : '',
+                // Tin: TinArr && TinArr.length > 0 ? TinArr[0].id : '',
             })
         }
         if (prevProps.byTD !== this.props.byTD) {
             let TDArr = this.props.byTD
             this.setState({
                 byTDArr: TDArr,
-                TD: TDArr && TDArr.length > 0 ? TDArr[0].id : '',
+                // TD: TDArr && TDArr.length > 0 ? TDArr[0].id : '',
             })
         }
 
         if (prevProps.listClass !== this.props.listClass) {
             let listClassArr = this.props.listClass
             this.setState({
+                action: CRUD_ACTIONS.CREATE,
                 classArr: listClassArr,
-                MaLop: listClassArr && listClassArr.length > 0 ? listClassArr[0].id: ''
+                // MaLop: listClassArr && listClassArr.length > 0 ? listClassArr[0].id: ''
             })
         }
 
         if (prevProps.TBC !== this.props.TBC) {
             let TBCl = this.props.TBC
-            console.log('TBCL', TBCl)
-            this.handleState(TBCl)
+            this.setState({
+                TBClass: TBCl,
+            })
         }
-    }
-
-    handleState = (data) => {
-        {
-            data && data.length > 0 &&
-            data.map((item, index) => {
-                return (
-                    <>
-
-                    </>
-                )
-        })}
     }
 
     checkValidateInput = () => {
@@ -348,10 +339,15 @@ class Assignment extends Component {
         console.log('copyState',copyState)
     }
 
-    handleClick = (event) => {
-        console.log('handleClick', event.target.value)
-        this.props.teachersByLop(event.target.value)
-    }
+    // handleClick = async (event) => {
+    //     this.props.teachersByLop(event.target.value)
+    //     console.log('abc', this.state.TBClass)
+    //     // let NSubject = nameSubject(event.target.value)
+    //     // console.log('NSubject', NSubject)
+    //     // for (let i = 0; i < 13; i++){
+    //     //     if(!this.state.Toan && )
+    //     // }
+    // }
 
     handleEditFromParent = () => {
 
@@ -380,10 +376,10 @@ class Assignment extends Component {
                                 <label>Lớp</label>
                                 <select className="form-control"
                                     onChange={(event) => this.onChangeInput(event, 'MaLop')}
-                                    onClick={(event) => this.handleClick(event)}
+                                    // onClick={(event) => this.handleClick(event)}
                                     value={MaLop}
                                 >
-                                    <option value="" selected disabled hidden>Chọn Lớp Học</option>
+                                    <option selected>Chọn Lớp Học</option>
                                     {classArr && classArr.length > 0 && classArr.map((item, index) => {
                                         return (
                                             
@@ -400,7 +396,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Toan')}
                                     value={Toan}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {arrByMath && arrByMath.length > 0 && arrByMath.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -416,7 +412,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Van')}
                                     value={Van}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byVanArr && byVanArr.length > 0 && byVanArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -432,7 +428,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Anh')}
                                     value={Anh}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byAnhArr && byAnhArr.length > 0 && byAnhArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -448,7 +444,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Su')}
                                     value={Su}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {bySuArr && bySuArr.length > 0 && bySuArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -464,7 +460,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Dia')}
                                     value={Dia}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byDiaArr && byDiaArr.length > 0 && byDiaArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -480,7 +476,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Ly')}
                                     value={Ly}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byLyArr && byLyArr.length > 0 && byLyArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -496,7 +492,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Hoa')}
                                     value={Hoa}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byHoaArr && byHoaArr.length > 0 && byHoaArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -512,7 +508,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'CN')}
                                     value={CN}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byCNArr && byCNArr.length > 0 && byCNArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -528,7 +524,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'GDCD')}
                                     value={GDCD}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byGDCDArr && byGDCDArr.length > 0 && byGDCDArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -544,7 +540,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Tin')}
                                     value={Tin}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byTinArr && byTinArr.length > 0 && byTinArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -560,7 +556,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'Sinh')}
                                     value={Sinh}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {bySinhArr && bySinhArr.length > 0 && bySinhArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -576,7 +572,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'GDQP')}
                                     value={GDQP}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byGDQPArr && byGDQPArr.length > 0 && byGDQPArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -592,7 +588,7 @@ class Assignment extends Component {
                                     onChange={(event) => this.onChangeInput(event, 'TD')}
                                     value={TD}
                                 >
-                                    <option>Chọn Giáo Viên</option>
+                                    <option selected>Chọn Giáo Viên</option>
                                     {byTDArr && byTDArr.length > 0 && byTDArr.map((item, index) => {
                                         return (
                                             <option key={index} value={item.id}>{item.HoTenGV}</option>
@@ -604,9 +600,10 @@ class Assignment extends Component {
 
                             <div
                                 className="btn-save mt-3 col-12"
-                                onClick={() => this.handleSaveTeaching()}
+                                
                             >
                                 <button
+                                    onClick={() => this.handleSaveTeaching()}
                                     className={ this.state.action === CRUD_ACTIONS.EDIT?"btn btn-warning":"btn btn-primary" }
                                 >
                                     {this.state.action === CRUD_ACTIONS.EDIT?
@@ -616,12 +613,13 @@ class Assignment extends Component {
                                 </button>
                             </div>
                         </div>
-                    </div>   
+                    </div>
+                    <TableA/>
                 </div>
+                
             </>
         );
     }
-
 }
 
 const mapStateToProps = state => {

@@ -15,6 +15,8 @@ import CustomScrollbars from '../components/CustomScrollbars';
 import ListTeachers from './users/teachers/ListTeachers';
 import News from './users/news/news';
 import NewsDetail from './users/news/NewsDetail';
+import Assignment from './users/Assignment/Assignment';
+import AssignmentDetail from './users/Assignment/AssignmentDetail';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -48,7 +50,9 @@ class App extends Component {
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={(HomePage)} />
                                     <Route path={path.HOME_NEWS} component={News} /> 
-                                    <Route path={path.NEWS_DETAIL} component={NewsDetail}/>
+                                    <Route path={path.NEWS_DETAIL} component={NewsDetail} />
+                                    <Route path={path.HOME_ASSIGNMENT} component={Assignment} />
+                                    <Route path={path.HOME_ASSIGNMENT_DETAIL} component={AssignmentDetail}/>
                                 </Switch>
                             </CustomScrollbars>
                         </div>

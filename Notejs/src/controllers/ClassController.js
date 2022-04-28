@@ -47,9 +47,17 @@ let handleEditClass = async (req, res) => {
     return res.status(200).json(message)
 }
 
+let handleEditTeaching = async (req, res) => {
+    let data = req.body;
+    console.log(data)
+    let message = await ClassService.EditTeaching(data);
+    return res.status(200).json(message)
+}
+
 module.exports = {
     handleGetAllClass: handleGetAllClass,
     handleCreateClass: handleCreateClass,
     handleDeleteClass: handleDeleteClass,
     handleEditClass: handleEditClass,
+    handleEditTeaching: handleEditTeaching,
 }

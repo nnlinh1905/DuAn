@@ -9,7 +9,7 @@ export const getAllClass = () => {
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_All_CLASS_SUCCESS,
-                    data: res.DataClass.reverse(),
+                    data: res.DataClass,
                 });
             } else {
                 dispatch({

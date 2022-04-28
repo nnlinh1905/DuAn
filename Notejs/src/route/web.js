@@ -49,14 +49,17 @@ let initWebRouter = (app) => {
     Router.post('/api/create-class', ClassController.handleCreateClass);
     Router.delete('/api/delete-class', ClassController.handleDeleteClass);
     Router.put('/api/edit-class', ClassController.handleEditClass);
-
+    Router.put('/api/edit-teaching', ClassController.handleEditTeaching)
 
     //Teaching
     Router.post('/api/create-teaching', TeachingController.handleCreateTeaching);
     Router.get('/api/get-teacher-by-class', TeachingController.handleGetTeacherByLop);
-
+    Router.get('/api/get-name-subject', TeachingController.handleGetNameSubject);
     Router.get('/api/get-teacher-all', TeachingController.handleGetAll);
 
+    Router.get('/api/get-chairman', TeachingController.handleGetChairman);
+    Router.get('/api/get-all-chairman', TeachingController.handleGetAllChairman);
+    Router.put('/api/edit-chairman', TeachingController.handleEditChairman);
     return app.use("/", Router);
 }
 

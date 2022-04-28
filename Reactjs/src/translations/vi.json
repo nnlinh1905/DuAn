@@ -60,7 +60,7 @@
             "subject-de": "Giáo Dục Quốc Phòng",
             "PC": "Phân Công",
             "PCGD":"Phân Công Giảng Dạy",
-
+            "chairman": "Giáo Viên Chủ Nhiệm",
 
             "point": "Điểm",
             "manage-point": "Quản Lý Điểm",
@@ -149,5 +149,15 @@
     "thongbao": {
         "title": "Tin Tức - Thông báo",
         "more": "Xem Thêm"
+    },
+
+    "chairman": {
+        "chairman-title": "Quản Lý Giáo Viên Chủ Nhiệm",
+        "class": "Lớp Học",
+        "select": "Chọn...",
+        "chairman": "Chủ Nhiệm",
+        "year": "Năm Học",
+        "homeroom-teacher": "Giáo Viên Chủ Nhiệm",
+        "edit": "Sửa"
     }
 }

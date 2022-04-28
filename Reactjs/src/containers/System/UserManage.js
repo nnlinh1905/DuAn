@@ -49,7 +49,7 @@ class UserManage extends Component {
             isOpenModalEditUser: !this.state.isOpenModalEditUser,
         })
     }
-
+    
     createNewUser = async (data) => {
         try {
             let response = await createNewUserService(data);

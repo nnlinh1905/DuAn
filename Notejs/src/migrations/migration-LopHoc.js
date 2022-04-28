@@ -11,13 +11,15 @@ module.exports = {
       NamHoc: {
         allowNull: false,
         type: Sequelize.STRING
-        
       },
       MaKhoi: {
         type: Sequelize.STRING
       },
       TenLop: {
         type: Sequelize.STRING
+      },
+      ChuNhiem: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

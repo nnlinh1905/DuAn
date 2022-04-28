@@ -55,7 +55,6 @@ let CreateTeaching = (data) => {
 let getTeachersByLop = (idClass) => {
     return new Promise( async(resolve, reject) => {
         try {
-            // idClass =18
             console.log('id:', idClass)
             let teachers = '';
             if (!idClass) {
@@ -66,14 +65,14 @@ let getTeachersByLop = (idClass) => {
             } else {
                 teachers = await db.GiangDays.findAll({
                     where: { MaLop: idClass },
-                    // include: [
-                    //     {
-                    //         model: db.LopHocs, as: 'MaGVData', attributes:['TenLop']
-                    //     },
-                    //     // {
-                    //     //     model: db.GiaoViens, as: 'LopData', attributes:['HoTenGV']
-                    //     // },
-                    // ],
+                    include: [
+                        {
+                            model: db.LopHocs, as: 'LopData',
+                        },
+                        {
+                            model: db.GiaoViens, as: 'MaGVData',
+                        },
+                    ],
                     raw: true,
                     nest: true
                 })
@@ -82,6 +81,40 @@ let getTeachersByLop = (idClass) => {
                     errCode: 0,
                     errMessage: 'ok',
                     teachers
+                })
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
+let getNameSubject = (ID) => {
+    return new Promise( async(resolve, reject) => {
+        try {
+            let nameSubject= '';
+            console.log('idsse', ID)
+            if (!ID) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'No code layer!'
+                })
+            } else {
+                nameSubject = await db.GiaoViens.findOne({
+                    where: { ID: ID },
+                    attributes: ['ID'],
+                    include: [
+                        {
+                            model: db.allcodes, as: 'MaChuyenMonData', attributes:['keyMap']
+                        },
+                    ],
+                    raw: true,
+                    nest: true
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: 'ok',
+                    nameSubject
                 })
             }
         } catch (e) {
@@ -128,46 +161,105 @@ let DeleteClass = (id) => {
     })
 }
 
-let EditClass = (classData) => {
+let EditChairman = (TeachingData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log('id',classData.id)
-            if (!classData.id) {
+            if (!TeachingData.id) {
                 resolve({
                     errCode: 2,
                     errMessage: `Missing required parameters`
                 });
             }
+
             let Lop = await db.LopHocs.findOne({
-                where: { ID: classData.id },
+                where: { ID: TeachingData.id },
                 raw: false
             })
             if (Lop) {
-                Lop.TenLop = classData.TenLop,
-                Lop.MaKhoi = classData.MaKhoi,
-                Lop.NamHoc = classData.NamHoc,
+                Lop.ChuNhiem = TeachingData.teacher
                 await Lop.save()
-                resolve({
-                    errCode: 0,
-                    message: 'update the user succeeds'
-                })
-            } else {
-                resolve({
-                    errCode: 1,
-                    errMessage: `user's not found!`
-                });
             }
+
+
+            let data = await db.GiaoViens.findOne({
+                where: { ID: TeachingData.teacher },
+                raw: false
+            })
+            if (data) {
+                data.MaChucDanh = "GVCN"
+                await data.save();
+            }
+
+            let data_old = await db.GiaoViens.findOne({
+                where: { ID: TeachingData.teacher_old},
+                raw: false
+            })
+            if (data_old) {
+                data_old.MaChucDanh = "GVBM"
+                await data_old.save();
+            }
+
+            resolve({
+                errCode: 0,
+                errMessage: `ok`,
+            });
         } catch (e) {
             reject(e)
         }
     })
 }
 
+let GetChairman = (data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let chairman = '';
+            let lop = '';
+            chairman = await db.GiaoViens.findOne({
+                where: { ID: data.teacher },
+                attributes: {
+                    exclude: ['Password']
+                },
+                include: [
+                    {
+                        model: db.allcodes, as: 'MaChuyenMonData', attributes:['valueVi', 'valueEn']
+                    },
+                ],
+                raw: true,
+                nest: true
+            })
+            lop = await db.LopHocs.findOne({
+                where: {ID: data.lop}
+            })
+            resolve({
+                errCode: 0,
+                errMessage: 'OK',
+                lop,
+                chairman
+            })
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
+// let GetAllChairman = (req, res) => {
+//     return new Promise( async (resolve, reject) => {
+//         try {
+//             let Assignment = await db.LopHocs.findAll()
+//         } catch (e) {
+//             reject(e)
+//         }
+//     })
+// }
+
 module.exports = {
     getTeachersByLop: getTeachersByLop,
     GetAllClass: GetAllClass,
     CreateTeaching: CreateTeaching,
     DeleteClass: DeleteClass,
-    EditClass: EditClass,
-    handleGetAllService: handleGetAllService
+    EditChairman: EditChairman,
+    handleGetAllService: handleGetAllService,
+    getNameSubject: getNameSubject,
+    GetChairman: GetChairman,
+    // GetAllChairman: GetAllChairman,
 }

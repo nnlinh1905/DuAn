@@ -8,7 +8,7 @@ import { withRouter } from 'react-router';
 import { allNews } from '../../../services/userService';
 import Moment from 'react-moment';
 
-class news extends Component {
+class NewsDetail extends Component {
 
     constructor(props) {
         super(props);
@@ -105,4 +105,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(news));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewsDetail));

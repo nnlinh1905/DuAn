@@ -22,19 +22,34 @@ let GetAllClass = (id) => {
         try {
             let data = ''
             if (id === 'ALL') {
-                data = await db.LopHocs.findAll()
+                data = await db.LopHocs.findAll({
+                    include: [
+                        {
+                            model: db.GiaoViens, as: 'LopGiaoVien',
+                            include: [
+                                {
+                                    model: db.allcodes, as: 'MaChuyenMonData'
+                                },
+                                {
+                                    model: db.allcodes, as: 'MaChucDanhData'
+                                }
+                            ]
+                        },
+                        { model: db.allcodes, as: 'NamHocNe'}
+                    ],
+                raw: true,
+                nest: true,
+                })
             }
             if (id && id !== 'ALL') {
                 data = await db.LopHocs.findOne({
                     where: { ID: id },
                     include: [
-                        {
-                            model: db.markdowns,
-                            attributes:['valueEn','valueVi']
-                        },
+                        { model: db.GiaoViens, as: 'LopGiaoVien' },
+                        { model: db.allcodes, as: 'NamHocNe'}
                     ],
                     raw: true,
-                    nest: true
+                    nest: true,
                 })
             }
             resolve(data)
@@ -125,10 +140,87 @@ let EditClass = (classData) => {
     })
 }
 
+let checkChuNhiem = (CN) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let check = await db.LopHocs.findOne({
+                where: {ChuNhiem: CN},
+            })
+            if (check) {
+                resolve(check);
+            } else {
+                resolve(false);
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
+let EditTeaching = (teaching) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!teaching.lop) {
+                resolve({
+                    errCode: 2,
+                    errMessage: `Missing required parameters`
+                });
+            }
+            
+            // let check = this.checkChuNhiem(teaching.teacher)
+
+            // if (check) {
+            //     resolve({
+            //         errCode: 3,
+            //         errMessage: "different from the master class"
+            //     })
+            // }
+            
+            let data = await db.LopHocs.findOne({
+                where: { ID: teaching.lop },
+                raw: false
+            })
+            if (data) {
+                data.ChuNhiem = teaching.teacher
+                await data.save();
+            } else {
+                resolve({
+                    errCode: 1,
+                    errMessage: `Error!`
+                });
+            }
+
+            let dataCN = await db.GiaoViens.findOne({
+                where: { ID: teaching.teacher },
+                raw: false
+            })
+            if (dataCN) {
+                dataCN.MaChucDanh = "GVCN"
+                dataCN.save();
+            } else {
+                resolve({
+                    errCode: 1,
+                    errMessage: `Error!`
+                });
+            }
+
+            resolve({
+                errCode: 0,
+                message: 'ok',
+                dataCN,
+                data
+            })
+
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 
 module.exports = {
     GetAllClass: GetAllClass,
     CreateClass: CreateClass,
     DeleteClass: DeleteClass,
     EditClass: EditClass,
+    EditTeaching:EditTeaching,
 }

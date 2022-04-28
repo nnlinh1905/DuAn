@@ -32,7 +32,6 @@ export const saveAssignmentStart = (data) => {
 export const teachersByLop = (id) => {
     return async (dispatch, getState) => {
         try {
-            console.log(id)
             let res = await teacherByClass(id);
             if (res && res.errCode === 0) {
                 // toast.success("Save Assignment success");

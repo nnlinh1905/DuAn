@@ -16,9 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       GiaoViens.belongsTo(models.allcodes, { foreignKey: 'MaChuyenMon', targetKey: 'keyMap', as: 'MaChuyenMonData' })
       GiaoViens.belongsTo(models.allcodes, { foreignKey: 'MaChucDanh', targetKey: 'keyMap', as: 'MaChucDanhData'})
       
-      GiaoViens.hasMany(models.GiangDays, { foreignKey: 'MaGV', as: 'MaGVData'})
+      GiaoViens.hasMany(models.GiangDays, { foreignKey: 'id', as: 'MaGVData' })
+      
+      GiaoViens.hasMany(models.LopHocs, { foreignKey: 'id', as: 'LopGiaoVien' })
     }
-  };
+  };  
   GiaoViens.init({
     HoTenGV: DataTypes.STRING,
     MaXaPhuong: DataTypes.STRING,
