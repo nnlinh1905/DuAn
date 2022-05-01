@@ -9,6 +9,7 @@ export const path = {
     HOME_ASSIGNMENT: '/home-assignment',
     HOME_ASSIGNMENT_DETAIL: '/home-assignment-detail/:id',
     LIST_CLASS: '/list-class',
+    HOME_ABOUT: '/home-about'
 };
 
 export const LANGUAGES = {

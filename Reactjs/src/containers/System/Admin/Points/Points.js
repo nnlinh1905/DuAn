@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import * as actions from "../../../../store/actions";
 import 'react-markdown-editor-lite/lib/index.css';
 // import './Ponits.scss';
-import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../../utils';
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils, dateFormat } from '../../../../utils';
 // import ChairmanTable from './ChairmanTable';
 import ModalDiem from './ModalDiem';
+import moment from 'moment';
 import { emitter } from '../../../../utils/emitter';
 import { getClassByTeacher, getStudentByClass, savePoints, GetPointsStudentByClass } from '../../../../services/userService';
 
@@ -14,8 +15,11 @@ import { getClassByTeacher, getStudentByClass, savePoints, GetPointsStudentByCla
 class Ponits extends Component {
 
     constructor(props) {
+        const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
         super(props);
         this.state = {
+            currentDate: '',
             LBT: [],
             SBClass: [],
             maLop: '',
@@ -23,7 +27,8 @@ class Ponits extends Component {
             isOpenModalUser: false,
             isOpenModalEditUser: false,
             newPoints: {},
-            studentPoints: []
+            studentPoints: [],
+            userEdit: {}
         }
     }
 
@@ -240,6 +245,8 @@ class Ponits extends Component {
                             <tr>
                                 <th>STT</th>
                                 <th>Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
                                 <th>Nhập Điểm</th>
                             </tr>
                             {SBClass && SBClass.length > 0 && SBClass.map((item, index) => {
@@ -247,7 +254,9 @@ class Ponits extends Component {
                                     <tr>
                                         <td>{index + 1}</td>
                                         <td>{item.HoTenHS}</td>
-                                        <td>
+                                        <td>{item.GioiTinhData.valueVi}</td>
+                                        <td>{moment(item.NgaySinh).format(dateFormat.SEND_TO_SERVER)}</td>
+                                        <td className="text-center">
                                             <div className="mx-1">
                                                 <button className="btn btn-primary px-3"
                                                     onClick={() => this.handleAddNewUser(item)}

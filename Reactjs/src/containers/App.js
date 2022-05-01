@@ -9,15 +9,14 @@ import { path } from '../utils'
 import Home from '../routes/Home';
 import Login from './Auth/Login.js';
 import System from '../routes/System';
-import { CustomToastCloseButton } from '../components/CustomToast';
 import HomePage from '../containers/HomePage/HomePage';
 import CustomScrollbars from '../components/CustomScrollbars';
-import ListTeachers from './users/teachers/ListTeachers';
 import News from './users/news/news';
 import NewsDetail from './users/news/NewsDetail';
 import Assignment from './users/Assignment/Assignment';
 import AssignmentDetail from './users/Assignment/AssignmentDetail';
 import ListClass from './users/ListClass/ListClass';
+import About from './users/About/About';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -55,6 +54,7 @@ class App extends Component {
                                     <Route path={path.HOME_ASSIGNMENT} component={Assignment} />
                                     <Route path={path.HOME_ASSIGNMENT_DETAIL} component={AssignmentDetail} />
                                     <Route path={path.LIST_CLASS} component={ListClass} />
+                                    <Route path={path.HOME_ABOUT} component={About}/>
                                 </Switch>
                             </CustomScrollbars>
                         </div>

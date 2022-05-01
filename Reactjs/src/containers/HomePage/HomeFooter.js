@@ -9,7 +9,7 @@ class ThongBao extends Component {
     render() {
         return (
             <div className="HomeFooter">
-                <p>&copy; 2022 Nguyễn Nhựt Linh. Trang cá Nhân<a target="blank" href="https://www.facebook.com/nnLinh1905">&#8594;&#8594;Tại đây!&#8592;&#8592;</a></p>
+                <p>&copy; 2022 Nguyễn Nhựt Linh. Trang cá Nhân<a target="blank" href="https://github.com/nnlinh1905">&#8594;&#8594;Tại đây!&#8592;&#8592;</a></p>
             </div>
         );
     }

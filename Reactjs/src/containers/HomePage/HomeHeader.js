@@ -25,6 +25,10 @@ class HomeHeader extends Component {
         this.props.history.push('/list-class')
     }
 
+    handleViewAbout = () => {
+        this.props.history.push('/home-about')
+    }
+
     returnToHome = () => {
         if (this.props.history) {
             this.props.history.push(`/home`)
@@ -43,7 +47,7 @@ class HomeHeader extends Component {
                             <div className="header-logo" onClick={this.returnToHome}></div>
                         </div>
                         <div className="center-content">
-                            <div className="child-content">
+                            <div className="child-content" onClick={()=> this.handleViewAbout()}>
                                 <div><b><FormattedMessage id="HomeHeader.About"/></b></div>
                             </div>
                             <div className="child-content">
