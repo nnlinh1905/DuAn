@@ -237,16 +237,64 @@
             .right-content{
                 padding: 10px 40px;
                 .section-custom{
-                    .img_anh{
+                    .img_anh1{
                         width: 100%;
                         height: 300px;
-                        background-position: center center;
-                        background-repeat: no-repeat;
-                        background-size:cover;
-                        background-color: #eee;
+                        background-position: center center !important;
+                        background-repeat: no-repeat !important;
+                        background-size:cover !important;
+                        background-color: #eee !important;
+
+                        &.section-HoatDong{
+                            background: url('../../assets/HoatDongIMG/CamHoa.jpg');
+                        }
+                    }
+                    .img_anh2{
+                        width: 100%;
+                        height: 300px;
+                        background-position: center center !important;
+                        background-repeat: no-repeat !important;
+                        background-size:cover !important;
+                        background-color: #eee !important;
+
+                        &.section-HoatDong{
+                            background: url('../../assets/HoatDongIMG/CaMua.jpg');
+                        }
+                    }
+                    .img_anh3{
+                        width: 100%;
+                        height: 300px;
+                        background-position: center center !important;
+                        background-repeat: no-repeat !important;
+                        background-size:cover !important;
+                        background-color: #eee !important;
+
+                        &.section-HoatDong{
+                            background: url('../../assets/HoatDongIMG/ttDanGiang.jpg');
+                        }
+                    }
+                    .img_anh4{
+                        width: 100%;
+                        height: 300px;
+                        background-position: center center !important;
+                        background-repeat: no-repeat !important;
+                        background-size:cover !important;
+                        background-color: #eee !important;
 
                         &.section-HoatDong{
                             background: url('../../assets/HoatDongIMG/hd.jpg');
+                        }
+                    }
+                    .img_anh5{
+                        width: 100%;
+                        height: 300px;
+                        background-position: center center !important;
+                        background-repeat: no-repeat !important;
+                        background-size:cover !important;
+                        background-color: #eee !important;
+
+                        &.section-HoatDong{
+                            background: url('../../assets/HoatDongIMG/DaBanh.jpg');
                         }
                     }
                 }

@@ -88,10 +88,10 @@ class HomeHeader extends Component {
                                     <div className="icon-child"><i className="far fa-list-alt"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.ClassList"/></div>
                                 </div>
-                                <div className="option-child">
+                                {/* <div className="option-child">
                                     <div className="icon-child"><i className="fas fa-puzzle-piece"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.Activities"/></div>
-                                </div>
+                                </div> */}
                                 <div className="option-child">
                                     <div className="icon-child"><i className="far fa-bell"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.Notification"/></div>
