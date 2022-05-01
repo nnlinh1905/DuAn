@@ -8,6 +8,7 @@ export const path = {
     NEWS_DETAIL: '/newsdetail/:id',
     HOME_ASSIGNMENT: '/home-assignment',
     HOME_ASSIGNMENT_DETAIL: '/home-assignment-detail/:id',
+    LIST_CLASS: '/list-class',
 };
 
 export const LANGUAGES = {

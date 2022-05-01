@@ -156,5 +156,23 @@
         "year": "School year",
         "homeroom-teacher": "Homeroom teacher",
         "edit": "Edit"
+    },
+
+    "assignment": {
+        "title": "TEACHING ASSOCIATION",
+        "STT": "NO",
+        "name-class": "Class name",
+        "year": "School year",
+        "cn": "Name of Head Teacher",
+        "khac": "Other Teachers",
+
+        "assignmentDetail":{
+            "bm": "Class Teacher",
+            "year": "School Year",
+            "subject": "Subject",
+            "ten": "Teacher's Name",
+            "mail": "Email",
+            "dt": "Phone number"
+        }
     }
 }

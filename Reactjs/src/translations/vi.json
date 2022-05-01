@@ -159,5 +159,24 @@
         "year": "Năm Học",
         "homeroom-teacher": "Giáo Viên Chủ Nhiệm",
         "edit": "Sửa"
+    },
+
+    "assignment": {
+        "title": "PHÂN CÔNG GIẢNG DẠY",
+        "STT": "STT",
+        "name-class": "Tên Lớp",
+        "year": "Năm Học",
+        "cn": "Tên Giáo Viên Chủ Nhiệm",
+        "khac": "Giáo Viên Khác",
+
+        "assignmentDetail":{
+            "bm": "Giáo Viên Bộ Môn Lớp",
+            "year": "Năm Học",
+            "subject": "Môn Học",
+            "ten": "Họ Tên Giáo Viên",
+            "mail": "Email",
+            "dt": "Số Điện Thoại"
+        }
+
     }
 }

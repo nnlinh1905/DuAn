@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       allcodes.hasMany(models.HocSinhs, { foreignKey: 'NamHoc', as: 'NamHocData' })
       allcodes.hasMany(models.HocSinhs, { foreignKey: 'MaLop', as: 'MaLopData' })
       allcodes.hasMany(models.HocSinhs, { foreignKey: 'MaTonGiao', as: 'MaTonGiao' })
+      allcodes.hasMany(models.HocSinhs, { foreignKey: 'GioiTinh', as: 'GioiTinhData'})
       
       allcodes.hasMany(models.GiaoViens, { foreignKey: 'MaChuyenMon', as: 'MaChuyenMonData' })
       allcodes.hasMany(models.GiaoViens, { foreignKey: 'MaChucDanh', as: 'MaChucDanhData' })

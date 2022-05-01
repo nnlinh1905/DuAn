@@ -6,6 +6,7 @@ import * as actions from '../../../store/actions';
 import './Assignment.scss';
 import { withRouter } from 'react-router';
 import Moment from 'react-moment';
+import { FormattedMessage } from 'react-intl';
 import { allClass } from '../../../services/userService';
 
 class Assignment extends Component {
@@ -48,17 +49,17 @@ class Assignment extends Component {
                     <div className="Assignment-frames">
                         <div className="Assignment-header">
                             <div className="content-up">
-                                <div className="Assignment-title">PHÂN CÔNG GIẢNG DẠY</div>
+                                <div className="Assignment-title"><FormattedMessage id="assignment.title"/></div>
                             </div>
                             <div className="content-down">
                                 <table className="table">
                                     <thead className="thead-dark">
                                         <tr>
-                                            <th scope="col">STT</th>
-                                            <th scope="col">Tên Lớp</th>
-                                            <th scope="col">Năm Học</th>
-                                            <th scope="col">Tên Giáo Viên Chủ Nhiệm</th>
-                                            <th scope="col">Giáo Viên Khác</th>
+                                            <th scope="col"><FormattedMessage id="assignment.STT"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.name-class"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.year"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.cn"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.khac"/></th>
                                         </tr>
                                     </thead>
                                     <tbody>

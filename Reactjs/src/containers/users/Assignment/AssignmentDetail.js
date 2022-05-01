@@ -7,6 +7,8 @@ import './assignmentDetail.scss';
 import { withRouter } from 'react-router';
 import { teacherByClass, allClass } from '../../../services/userService';
 import Moment from 'react-moment';
+import { FormattedMessage } from 'react-intl';
+
 
 class AssignmentDetail extends Component {
 
@@ -52,17 +54,17 @@ class AssignmentDetail extends Component {
                         <div className="assignment-frames1">
                             <div className="assignment-header">
                                 <div className="content-up">
-                                <div className="assignment-title">Giáo Viên Bộ Môn Lớp {lop.TenLop} Nam Hoc {NamHocNe.valueEn}</div>
+                                <div className="assignment-title"><FormattedMessage id="assignment.assignmentDetail.bm"/> {lop.TenLop} <FormattedMessage id="assignment.assignmentDetail.year"/> {NamHocNe.valueEn}</div>
                                 </div>
                             </div>
                             <div className="frames-assignment">
                                 <table className="table">
                                     <thead className="thead-dark">
                                         <tr>
-                                            <th scope="col">Môn Học</th>
-                                            <th scope="col">Họ Tên Giáo Viên</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Số Điện Thoại</th>
+                                            <th scope="col"><FormattedMessage id="assignment.assignmentDetail.subject"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.assignmentDetail.ten"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.assignmentDetail.mail"/></th>
+                                            <th scope="col"><FormattedMessage id="assignment.assignmentDetail.dt"/></th>
                                         </tr>
                                     </thead>
                                     <tbody>

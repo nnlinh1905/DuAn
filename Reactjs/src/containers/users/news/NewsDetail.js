@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import HomeHeader from "../../HomePage/HomeHeader";
 import HomeFooter from '../../HomePage/HomeFooter';
-import * as actions from '../../../store/actions';
 import './NewsDetail.scss';
 import { withRouter } from 'react-router';
 import { allNews } from '../../../services/userService';
-import Moment from 'react-moment';
+import { dateFormat } from '../../../utils';
+import moment from 'moment';
 
 class NewsDetail extends Component {
 
     constructor(props) {
         super(props);
+        const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
         this.state = {
             // arrNews: [],
             newsDetail: {},
+            currentDate: ''
         }
     }
 
@@ -71,7 +74,7 @@ class NewsDetail extends Component {
                                         {newsDetail.description}
                                     </div>
                                     <div className="frames-time">
-                                        <i class="far fa-clock"></i> <Moment parse="DD-MM-YYYY HH:mm">{newsDetail.createdAt}</Moment>
+                                        <i class="far fa-clock"></i> {moment(newsDetail.createdAt).format(dateFormat.SEND_TO_SERVER)}
                                     </div>
                                 </div>
                             </div>

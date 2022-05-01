@@ -232,7 +232,12 @@ let StudentByClass = (idLop) => {
                 where: {MaLop: idLop},
                 attributes: {
                     exclude: ['Password']
-                }
+                },
+                include: [
+                    {model: db.allcodes, as: 'GioiTinhData'}
+                ],
+                raw: true,
+                nest: true,
             })
             resolve({
                 errCode: 0,

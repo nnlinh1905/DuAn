@@ -21,6 +21,10 @@ class HomeHeader extends Component {
         this.props.history.push(`/home-assignment`)
     }
 
+    handleViewListClass = () => {
+        this.props.history.push('/list-class')
+    }
+
     returnToHome = () => {
         if (this.props.history) {
             this.props.history.push(`/home`)
@@ -76,7 +80,7 @@ class HomeHeader extends Component {
                                     <div className="icon-child"><i className="fas fa-chalkboard-teacher"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.TeachingAssignment"/></div>
                                 </div>
-                                <div className="option-child">
+                                <div className="option-child" onClick={() => this.handleViewListClass()}>
                                     <div className="icon-child"><i className="far fa-list-alt"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.ClassList"/></div>
                                 </div>

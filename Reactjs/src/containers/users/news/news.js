@@ -5,13 +5,17 @@ import HomeFooter from '../../HomePage/HomeFooter';
 import * as actions from '../../../store/actions';
 import './news.scss';
 import { withRouter } from 'react-router';
-import Moment from 'react-moment';
+import { dateFormat } from '../../../utils';
+import moment from 'moment';
 class news extends Component {
 
     constructor(props) {
         super(props);
+        const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
         this.state = {
-            arrNews: []
+            arrNews: [],
+            currentDate: ''
         }
     }
 
@@ -54,6 +58,8 @@ class news extends Component {
                                 if (item.avatar) {
                                     imageBase64 = new Buffer(item.avatar, 'base64').toString('binary')  
                                 }
+
+                                let forMatedDate = moment(item.createdAt).format(dateFormat.SEND_TO_SERVER)
                                 // let data = item.createdAt;
                                 // let date = data.getDate() + '-' + data.getMonth() + '-' + data.getFullYear();
                                 // let time = data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds();
@@ -70,8 +76,7 @@ class news extends Component {
                                                 {item.title}
                                                 <div className="news-time">
                                                     <i class="far fa-clock"></i>
-                                                    {/* {dateTime} */}
-                                                    <Moment parse="DD-MM-YYYY HH:mm">{item.createdAt}</Moment>
+                                                    {forMatedDate}
                                                 </div>
                                             </div>
                                             <div className="cent-down">
