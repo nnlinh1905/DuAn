@@ -44,7 +44,6 @@ class NewsDetail extends Component {
 
     render() {
         // let newsArr = this.state.arrNews;
-        console.log('check newsDetail', this.state.newsDetail)
         let newsDetail = this.state.newsDetail;
         // let newsID = this.props.match.params.id;
         return (

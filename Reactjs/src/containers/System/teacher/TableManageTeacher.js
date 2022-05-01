@@ -54,7 +54,6 @@ class TableManageTeacher extends Component {
     render() {
         let arrTeacher = this.state.teacherReducer;
         let language = this.props.language;
-        console.log('arrTeacher',arrTeacher)
         return (
             <React.Fragment>
                 <table id="TableManageTeacher">

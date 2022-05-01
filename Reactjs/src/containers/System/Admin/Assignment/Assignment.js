@@ -336,7 +336,6 @@ class Assignment extends Component {
         this.setState({
             ...copyState,
         })
-        console.log('copyState',copyState)
     }
 
     // handleClick = async (event) => {

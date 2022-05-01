@@ -10,6 +10,8 @@ import News from '../containers/System/Admin/News/news';
 import Class from '../containers/System/Admin/Class/Class';
 import Assignment from '../containers/System/Admin/Assignment/Assignment';
 import Chairman from '../containers/System/Admin/Assignment/Chairman';
+import Points from '../containers/System/Admin/Points/Points';
+
 class System extends Component {
     render() {
         const { systemMenuPath,isLoggedIn } = this.props;
@@ -27,6 +29,7 @@ class System extends Component {
                         <Route path="/system/class" component={Class} />
                         <Route path="/system/assignment" component={Assignment} />
                         <Route path="/system/chairman" component={Chairman} />
+                        <Route path="/system/points" component={Points} />    
                         <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                     </Switch>
                 </div>

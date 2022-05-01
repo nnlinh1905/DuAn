@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       GiaoViens.hasMany(models.GiangDays, { foreignKey: 'id', as: 'MaGVData' })
       
       GiaoViens.hasMany(models.LopHocs, { foreignKey: 'id', as: 'LopGiaoVien' })
+
+      //kiểm tra
+      GiaoViens.hasMany(models.KiemTras, {foreignKey: 'MaGV', as: 'KiemTraGiaoVien'})
     }
   };  
   GiaoViens.init({

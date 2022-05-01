@@ -106,7 +106,6 @@ class Class extends Component {
         //     this.props.allClass();
         // },1000)
         
-        console.log('check state', this.state);
     }
 
     onChangeInput = (event, id) => {

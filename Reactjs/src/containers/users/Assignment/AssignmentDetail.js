@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import HomeHeader from "../../HomePage/HomeHeader";
 import HomeFooter from '../../HomePage/HomeFooter';
 import * as actions from '../../../store/actions';
-// import './AssignmentDetail.scss';
+import './assignmentDetail.scss';
 import { withRouter } from 'react-router';
 import { teacherByClass, allClass } from '../../../services/userService';
 import Moment from 'react-moment';
@@ -44,25 +44,23 @@ class AssignmentDetail extends Component {
 
     render() {
         let { assignment, lop, NamHocNe, MaGVData, Mon } = this.state;
-        console.log('assignment', assignment)
         return (
             <>
                 <HomeHeader isShowBackground={false}/>
-                    <div className="News-container">
-                        <div className="News-content"></div>
-                        <div className="News-frames1">
-                            <div className="News-header">
+                    <div className="assignment-container">
+                        <div className="assignment-content"></div>
+                        <div className="assignment-frames1">
+                            <div className="assignment-header">
                                 <div className="content-up">
-                                <div className="News-title">Giáo Viên Bộ Môn Lớp {lop.TenLop} Nam Hoc {NamHocNe.valueEn}</div>
+                                <div className="assignment-title">Giáo Viên Bộ Môn Lớp {lop.TenLop} Nam Hoc {NamHocNe.valueEn}</div>
                                 </div>
                             </div>
-                            <div className="frames-cont">
-                                <table class="table">
-                                    <thead class="thead-dark">
+                            <div className="frames-assignment">
+                                <table className="table">
+                                    <thead className="thead-dark">
                                         <tr>
                                             <th scope="col">Môn Học</th>
                                             <th scope="col">Họ Tên Giáo Viên</th>
-                                            <th scope="col">Chức Danh Giáo Viên</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Số Điện Thoại</th>
                                         </tr>
@@ -71,9 +69,8 @@ class AssignmentDetail extends Component {
                                         {assignment && assignment.length > 0 && assignment.map((item, index) => {
                                             return (
                                                 <tr>
-                                                    <th scope="row">{item.MaGVData.MaChuyenMon}</th>
-                                                    <td>{item.MaGVData.HoTenGV}</td>
-                                                    <td>{item.MaGVData.MaChucDanh}</td>
+                                                    <th scope="row">{item.MaGVData.MaChuyenMonData.valueVi}</th>
+                                                    <td>{item.MaGVData.HoTenGV} <b>{item.LopData.ChuNhiem == item.MaGVData.id ? "(Chủ Nhiệm)" : ''}</b></td>
                                                     <td>{item.MaGVData.Email}</td>
                                                     <td>{item.MaGVData.SDT}</td>
                                                 </tr>

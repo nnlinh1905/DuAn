@@ -71,7 +71,6 @@ class UserManage extends Component {
     handleDelete = async (user) => {
         try {
             let res = await deleteUserService(user.id);
-            console.log(res);
             if (res && res.errCode === 0) {
                 await this.getAllUsersFromReact();
             } else {
@@ -83,7 +82,6 @@ class UserManage extends Component {
     }
 
     handleEdit = (user) => {
-        console.log(user);
         this.setState({
             isOpenModalEditUser: true,//!this.state.isOpenModalEditUser
             userEdit: user

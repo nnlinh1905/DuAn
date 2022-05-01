@@ -52,7 +52,7 @@ export const adminMenu = [
         name: 'menu.admin.point',
         menus: [
             {
-                name: "menu.admin.manage-point", link: 'system/user/manage-point'
+                name: "menu.admin.manage-point", link: '/system/points'
             }
             
         ]

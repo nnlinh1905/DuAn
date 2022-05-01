@@ -7,7 +7,6 @@ import './UserRedux.scss';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import TableManageUser from './TableManageUser';
-
 class UserRedux extends Component {
 
     constructor(props) {
@@ -39,12 +38,13 @@ class UserRedux extends Component {
 
             action: '',
             userEditId: '',
+
         }
     }
 
     async componentDidMount() {
         this.props.getGenderStart();
-        this.props.getClassStart();
+        this.props.getAllClass();
         this.props.getYearStart();
         this.props.getReligionStart();
         this.props.getSemesterStart();
@@ -82,7 +82,7 @@ class UserRedux extends Component {
             let arrClass = this.props.class
             this.setState({
                 classArr: arrClass,
-                MaLop: arrClass && arrClass.length > 0 ? arrClass[0].keyMap : '',
+                MaLop: arrClass && arrClass.length > 0 ? arrClass[0].id : '',
             })
         }
 
@@ -107,7 +107,7 @@ class UserRedux extends Component {
             let arrReligion = this.props.religions
             this.setState({
                 MaChucDanh: arrYear && arrYear.length > 0 ? arrYear[0].keyMap : '',
-                MaLop: arrClass && arrClass.length > 0 ? arrClass[0].keyMap : '',
+                MaLop: arrClass && arrClass.length > 0 ? arrClass[0].id : '',
                 MaTonGiao: arrReligion && arrReligion.length > 0 ? arrReligion[0].keyMap : '',
                 HoTenHS: '',
                 GioiTinh: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : '',
@@ -217,7 +217,6 @@ class UserRedux extends Component {
     onChangeInput = (event, id) => {
         let copyState = { ...this.state}
         copyState[id] = event.target.value;
-        console.log(copyState);
         this.setState({
             ...copyState,
         })
@@ -259,7 +258,6 @@ class UserRedux extends Component {
         let semesters = this.state.semesterArr;
         let language = this.props.language;
         let isLoadingGender = this.props.isLoadingGender;
-
         let { NamHoc, MaLop, MaTonGiao, HoTenHS, GioiTinh, NgaySinh, DiaChi, SDT, Email, HoTenCha, NamSinhCha, HoTenMe, NamSinhMe, Password, avatar } = this.state;
         // console.log("check props", this.props.genderRedux)
         return (
@@ -376,7 +374,7 @@ class UserRedux extends Component {
                                 >
                                     {classs && classs.length > 0 && classs.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.keyMap}>{language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                            <option key={index} value={item.id}>{item.TenLop}</option>
                                         )
                                     })}
                                 </select>
@@ -448,7 +446,7 @@ const mapStateToProps = state => {
         genderRedux: state.admin.genders,
         isLoadingGender: state.admin.isLoadingGender,
         years: state.admin.years,
-        class: state.admin.class,
+        class: state.class.Class,
         religions: state.admin.religions,
         semesters: state.admin.semesters,
         listUser: state.admin.users
@@ -459,7 +457,7 @@ const mapDispatchToProps = dispatch => {
     return {
         getGenderStart: () => dispatch(actions.fetchGenderStart()),
         getYearStart: () => dispatch(actions.fetchYearStart()),
-        getClassStart: () => dispatch(actions.fetchClassStart()),
+        getAllClass: () => dispatch(actions.getAllClass()),
         getReligionStart: () => dispatch(actions.fetchReligionStart()),
         getSemesterStart: () => dispatch(actions.fetchSemesterStart()),
         createNewUser: (data) => dispatch(actions.createNewUser(data)),

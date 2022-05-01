@@ -27,7 +27,6 @@ class MonHoc extends Component {
     render() {
         let subjects = this.state.arrSubjects
         let {language} = this.props
-        console.log('check subjects', subjects)
         return (
             <div className="section-Share section-BoMon">
                 <div className="section-container">
@@ -43,7 +42,6 @@ class MonHoc extends Component {
                                     if (item.avatar) {
                                         imageBase64 = new Buffer(item.avatar, 'base64').toString('binary')  
                                     }
-                                    console.log('imageBase64', imageBase64)
                                     let subjectVi = `${item.valueVi}` 
                                     let subjectEn = `${item.valueEn}`
                                     return (

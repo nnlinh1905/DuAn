@@ -43,7 +43,6 @@ class Chairman extends Component {
 
     handleGetTeacher = async (event) => {
         let res = await teacherByClass(event.target.value);
-        console.log('res', res)
         if (res && res.errCode == 0) {
             this.setState({
                 TBC: res.teachers,
@@ -129,12 +128,10 @@ class Chairman extends Component {
         this.setState({
             ...copyState,
         })
-        console.log('copyState', copyState)
     }
 
     render() {
         let { action, lop, teacher, classArr, teacherArr, TBC} = this.state
-        console.log('TBC', TBC)
         return (
             <>
                 <div className="chairman"><FormattedMessage id="chairman.chairman-title"/></div>

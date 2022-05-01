@@ -52,7 +52,7 @@ class App extends Component {
                                     <Route path={path.HOME_NEWS} component={News} /> 
                                     <Route path={path.NEWS_DETAIL} component={NewsDetail} />
                                     <Route path={path.HOME_ASSIGNMENT} component={Assignment} />
-                                    <Route path={path.HOME_ASSIGNMENT_DETAIL} component={AssignmentDetail}/>
+                                    <Route path={path.HOME_ASSIGNMENT_DETAIL} component={AssignmentDetail} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

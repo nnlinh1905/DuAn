@@ -7,6 +7,7 @@ import TeacherController from "../controllers/TeacherController";
 import NewsController from "../controllers/newsController";
 import ClassController from "../controllers/ClassController";
 import TeachingController from "../controllers/TeachingController"
+import PointsController from "../controllers/PointsController"
 
 let Router = express.Router();
 
@@ -19,6 +20,8 @@ let initWebRouter = (app) => {
     Router.get('/edit-crud', HomeController.getEditCRUD);
     Router.post('/put-crud', HomeController.putCRUD);
     Router.get('/delete-crud', HomeController.deleteCRUD);
+
+
     Router.post('/api/login', UserController.handleLogin);
     Router.get('/api/get-all-users', UserController.handleGetAllUsers);
     Router.post('/api/create-new-user', UserController.handleCreateNewUser);
@@ -27,6 +30,8 @@ let initWebRouter = (app) => {
     Router.get('/api/allcode', UserController.getAllCode);
     Router.get('/api/subject-home', SubjectController.getSubject);
     Router.get('/api/HocSinh-home', SubjectController.getHocSinh);
+    Router.get('/api/Get-Student-by-class', UserController.getStudentByClass)
+
 
     //teacher api
     Router.post('/api/login-teacher', TeacherController.handleLogin);
@@ -60,6 +65,14 @@ let initWebRouter = (app) => {
     Router.get('/api/get-chairman', TeachingController.handleGetChairman);
     Router.get('/api/get-all-chairman', TeachingController.handleGetAllChairman);
     Router.put('/api/edit-chairman', TeachingController.handleEditChairman);
+    Router.get('/api/get-class-by-teacher', TeachingController.handleClassByTeacher);
+
+
+    //points
+    Router.get('/api/get-student-by-class', PointsController.handleStudentByClass);
+    Router.post('/api/save-points', PointsController.handleSavePoints);
+    Router.get('/api/get-all-points', PointsController.handleGetAllPoints);
+    Router.get('/api/get-points-student-by-class', PointsController.handleGetPointsStudentByClass);
     return app.use("/", Router);
 }
 

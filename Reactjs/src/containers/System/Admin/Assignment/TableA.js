@@ -48,7 +48,6 @@ class tableA extends Component {
     }
 
     handleEdit = (lop) => {
-        console.log('dsds',lop)
         this.props.handleEditFromParent(lop)
     }
 

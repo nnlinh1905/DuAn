@@ -25,7 +25,6 @@ class ModalEditUser extends Component {
                 Password: '123',
             })
         }
-        console.log('didmout edit ', this.props.currentUser)
     }
 
     toggle = () => {
@@ -64,7 +63,6 @@ class ModalEditUser extends Component {
     }
 
     render() {
-        console.log('check props', this.props);
         return (
             <Modal
                 isOpen={this.props.isOpen}

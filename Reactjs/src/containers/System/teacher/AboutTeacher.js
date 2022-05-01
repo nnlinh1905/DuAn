@@ -65,7 +65,6 @@ class AboutTeacher extends Component {
             description: this.state.description,
             teacherID: this.state.selectedTeacher.value,
         })
-        console.log('check state', this.state);
     }
 
     handleChange = selectedTeacher => {
@@ -79,7 +78,6 @@ class AboutTeacher extends Component {
     }
 
     render() {
-        console.log('check listteacher', this.state.listTeacher)
         return (
             <div className="teacher-container">
                 <div className="teacher-about-title"><FormattedMessage id="teacher.about"/></div>

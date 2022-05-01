@@ -12,6 +12,7 @@ const initialState = {
     titles: [],
     specializes: [],
     teachers: [],
+    TBC: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -127,6 +128,17 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_SPECIALIZE_FAILED:
             state.specializes = [];
+            return {
+                ...state,
+            }
+        
+        case actionTypes.FETCH_STUDENT_BY_CLASS_SUCCESS:
+            state.TBC = action.data;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_STUDENT_BY_CLASS_FAILED:
+            state.TBC = [];
             return {
                 ...state,
             }

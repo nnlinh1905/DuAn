@@ -33,7 +33,9 @@ let GetAllClass = (id) => {
                                 {
                                     model: db.allcodes, as: 'MaChucDanhData'
                                 }
-                            ]
+                            ],
+                            raw: true,
+                            nest: true,
                         },
                         { model: db.allcodes, as: 'NamHocNe'}
                     ],
@@ -108,7 +110,6 @@ let DeleteClass = (id) => {
 let EditClass = (classData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log('id',classData.id)
             if (!classData.id) {
                 resolve({
                     errCode: 2,

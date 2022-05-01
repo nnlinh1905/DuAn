@@ -23,7 +23,6 @@ class Assignment extends Component {
 
     handleAllClass = async () => {
         let res = await allClass('ALL');
-        console.log('res', res)
         if (res && res.errCode == 0) {
             this.setState({
                 classArr: res.DataClass
@@ -41,7 +40,6 @@ class Assignment extends Component {
 
     render() {
         let { classArr } = this.state
-        console.log('sad', classArr)
         return (
             <div>
                 <HomeHeader isShowBackground={false}/>

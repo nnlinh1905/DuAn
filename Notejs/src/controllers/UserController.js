@@ -60,10 +60,22 @@ let getAllCode = async (req, res) => {
         let data = await userService.GetAllCodeService(req.query.type);
         return res.status(200).json(data);
     } catch (e) {
-        console.log('Get all code error', e)
         return res.status(200).json({
             errCode: -1,
             errMessage:'Error from server'
+        })
+    }
+}
+
+let getStudentByClass = async (req, res) => {
+    try {
+        let id = req.query.idLop;
+        let TBL = await userService.StudentByClass(id);
+        return res.status(200).json(TBL)
+    } catch (e) {
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server'
         })
     }
 }
@@ -74,5 +86,6 @@ module.exports = {
     handleCreateNewUser: handleCreateNewUser,
     handleEditUser: handleEditUser,
     handleDeleteUser: handleDeleteUser,
-    getAllCode:getAllCode,
+    getAllCode: getAllCode,
+    getStudentByClass: getStudentByClass
 }

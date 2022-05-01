@@ -84,7 +84,6 @@ let EditNews = (newsData) => {
                 where: { ID: newsData.ID },
                 raw: false
             })
-            console.log(newsData)
             if (news) {
                 news.contentHTML = newsData.contentHTML,
                 news.contentMarkdown = newsData.contentMarkdown,

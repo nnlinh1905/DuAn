@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import {getAllTeachers,getHocSinh,getSubject,getAllCodeService, createNewUserService,getAllUsers,deleteUserService,editUserService } from '../../services/userService';
+import {GetStudentByClass,getAllTeachers,getHocSinh,getSubject,getAllCodeService, createNewUserService,getAllUsers,deleteUserService,editUserService } from '../../services/userService';
 import { toast } from "react-toastify"
 
 // export const fetchGenderStart = () => ({
@@ -162,6 +162,7 @@ export const createNewUser = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await createNewUserService(data);
+            
             if (res && res.errCode === 0) {
                 toast.success("Create a new user success");
                 dispatch(saveUserSuccess());
@@ -374,3 +375,26 @@ export const fetchSpecializeFailed = () => ({
 // export const fetchAllTeacherFailed = () => ({
 //     type: actionTypes.FETCH_All_TEACHER_FAILED,
 // })
+
+export const fetchStudentByClassStart = (idClass) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await GetStudentByClass(idClass);
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_STUDENT_BY_CLASS_SUCCESS,
+                    data: res.users
+                });
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_STUDENT_BY_CLASS_FAILED,
+                });
+            }
+        } catch (e) {
+            dispatch({
+                type: actionTypes.FETCH_STUDENT_BY_CLASS_FAILED,
+            });
+            console.log('FETCH_STUDENT_BY_CLASS_FAILED error',e);
+        }
+    }
+}

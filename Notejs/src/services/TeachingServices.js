@@ -55,7 +55,6 @@ let CreateTeaching = (data) => {
 let getTeachersByLop = (idClass) => {
     return new Promise( async(resolve, reject) => {
         try {
-            console.log('id:', idClass)
             let teachers = '';
             if (!idClass) {
                 resolve({
@@ -71,12 +70,21 @@ let getTeachersByLop = (idClass) => {
                         },
                         {
                             model: db.GiaoViens, as: 'MaGVData',
+                            include: [
+                                {
+                                    model: db.allcodes, as: 'MaChuyenMonData'
+                                },
+                                {
+                                    model: db.allcodes, as: 'MaChucDanhData'
+                                }
+                            ],
+                            raw: true,
+                            nest: true,
                         },
                     ],
                     raw: true,
                     nest: true
                 })
-                console.log('teachers', teachers)
                 resolve({
                     errCode: 0,
                     errMessage: 'ok',
@@ -93,7 +101,6 @@ let getNameSubject = (ID) => {
     return new Promise( async(resolve, reject) => {
         try {
             let nameSubject= '';
-            console.log('idsse', ID)
             if (!ID) {
                 resolve({
                     errCode: 1,
@@ -128,7 +135,6 @@ let handleGetAllService = () => {
         try {
             let teachers = '';
                 teachers = await db.GiangDays.findAll()
-                console.log('teachers', teachers)
                 resolve({
                     errCode: 0,
                     errMessage: 'ok',
@@ -252,6 +258,38 @@ let GetChairman = (data) => {
 //     })
 // }
 
+let classByTeacher = (idGV) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let allClass = '';
+            if (!idGV) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'No teacher!'
+                })
+            } else {
+                allClass = await db.GiangDays.findAll({
+                    where: { MaGV: idGV },
+                    include: [
+                        {
+                            model: db.LopHocs, as: 'LopData',
+                        },
+                    ],
+                    raw: true,
+                    nest: true,        
+                })
+            }
+            resolve({
+                errCode: 0,
+                errMessage: 'ok',
+                allClass
+            })
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
 module.exports = {
     getTeachersByLop: getTeachersByLop,
     GetAllClass: GetAllClass,
@@ -262,4 +300,5 @@ module.exports = {
     getNameSubject: getNameSubject,
     GetChairman: GetChairman,
     // GetAllChairman: GetAllChairman,
+    classByTeacher: classByTeacher,
 }

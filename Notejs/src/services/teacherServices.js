@@ -22,7 +22,6 @@ let handleUserLogin = (email, password) => {
             let isExist = await checkUserEmail(email);
             if (isExist) {
                 let user = await db.GiaoViens.findOne({
-                    attributes:['Email', 'Password', 'HoTenGV'],
                     where: { Email: email },
                     raw: true,
                 })
@@ -78,12 +77,31 @@ let getAllTeachers = (userID) => {
                 users = await db.GiaoViens.findAll({
                     attributes: {
                         exclude: ['Password']
-                     }
+                    },
+                    include: [
+                        {
+                            model: db.allcodes, as: 'MaChuyenMonData'
+                        },
+                        {
+                            model: db.allcodes, as: 'MaChucDanhData'
+                        }
+                    ],
+                    raw: true,
+                    nest: true,
+
                 })
             }
             if (userID && userID !== 'ALL') {
                 users = await db.GiaoViens.findOne({
-                    where: {ID: userID},
+                    where: { ID: userID },
+                    include: [
+                        {
+                            model: db.allcodes, as: 'MaChuyenMonData'
+                        },
+                        {
+                            model: db.allcodes, as: 'MaChucDanhData'
+                        }
+                    ]
                 })
             }
             resolve(users)
@@ -97,7 +115,6 @@ let CreateNewTeacher = (data) => {
     return new Promise( async(resolve, reject)=>{
         try {
             let check = await checkUserEmail(data.Email)
-            console.log(data)
             if (check) {
                 resolve({
                     errCode: 1,
@@ -124,7 +141,6 @@ let CreateNewTeacher = (data) => {
                 });
             }
         } catch (e) {
-            console.log("", e);
             reject(e)
         }
     })
@@ -154,7 +170,6 @@ let DeleteTeacher = (idUser) => {
 let handleEditTeacher = (userData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log('userData',userData)
             if (!userData.ID) {
                 resolve({
                     errCode: 2,
@@ -296,7 +311,17 @@ let TeacherBySubject = (TBS) => {
                 })
             } else {
                 let res = await db.GiaoViens.findAll({
-                    where: {MaChuyenMon: TBS}
+                    where: { MaChuyenMon: TBS },
+                    include: [
+                        {
+                            model: db.allcodes, as: 'MaChuyenMonData'
+                        },
+                        {
+                            model: db.allcodes, as: 'MaChucDanhData'
+                        }
+                    ],
+                    raw: true,
+                    nest: true,
                 })
                 resolve({
                     errCode: 0,

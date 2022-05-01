@@ -17,26 +17,27 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER
-        },
+      },
+      MaLop: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       MaMonHoc: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
         },
         KiemTra1: {
-          type: Sequelize.INTEGER
+          type: Sequelize.DOUBLE
         },
         KiemTra2: {
-          type: Sequelize.INTEGER
+          type: Sequelize.DOUBLE
         },
         KiemTra3: {
-          type: Sequelize.INTEGER
-        },
-        KiemTraGiuaKy: {
-          type: Sequelize.INTEGER
+          type: Sequelize.DOUBLE
         },
         KiemTraCuoiKy: {
-          type: Sequelize.INTEGER
+          type: Sequelize.DOUBLE
         },
       createdAt: {
         allowNull: false,

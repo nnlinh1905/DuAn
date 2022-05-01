@@ -127,5 +127,29 @@ const getEditTeaching = (data) => {
     return axios.put('/api/edit-chairman', data) 
 }
 
+const getClassByTeacher = (idGV) => {
+    return axios.get(`/api/get-class-by-teacher?maGV=${idGV}`)
+}
 
-export {getEditTeaching,getAllTeaching,nameSubject,teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }
+const getStudentByClass = (id) => {
+    return axios.get(`/api/get-student-by-class?idLop=${id}`);
+}
+
+
+const savePoints = (data) => {
+    return axios.post('/api/save-points', data);
+}
+
+const getAllPoints = (id) => {
+    return axios.get(`/api/get-all-points?id=${id}`);
+}
+
+const GetPointsStudentByClass = (id) => {
+    return axios.get(`/api/get-points-student-by-class?idLop=${id}`);
+}
+
+const GetStudentByClass = (id) => {
+    return axios.get(`/api/Get-Student-by-class?idLop=${id}`);
+}
+
+export {GetStudentByClass,GetPointsStudentByClass,getAllPoints,savePoints,getStudentByClass,getClassByTeacher,getEditTeaching,getAllTeaching,nameSubject,teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }

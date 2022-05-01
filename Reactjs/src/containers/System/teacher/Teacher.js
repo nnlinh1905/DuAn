@@ -196,8 +196,6 @@ class Teacher extends Component {
         this.setState({
             ...copyState,
         })
-
-        console.log('copyState',copyState)
     }
 
     handleEditFromParent = (user) => {
@@ -205,7 +203,6 @@ class Teacher extends Component {
         if (user.avatar) {
             imageBase64 = new Buffer(user.avatar, 'base64').toString('binary')  
         }
-        console.log(user.id)
         this.setState({
             MaTonGiao: user.MaTonGiao,
             HoTenGV: user.HoTenGV,

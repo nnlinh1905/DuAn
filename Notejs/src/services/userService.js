@@ -22,7 +22,6 @@ let handleUserLogin = (email, password) => {
             let isExist = await checkUserEmail(email);
             if (isExist) {
                 let user = await db.HocSinhs.findOne({
-                    attributes:['Email', 'Password', 'HoTenHS'],
                     where: { Email: email },
                     raw: true,
                 })
@@ -97,7 +96,6 @@ let CreateNewUser = (data) => {
     return new Promise( async(resolve, reject)=>{
         try {
             let check = await checkUserEmail(data.Email)
-            console.log(data)
             if (check) {
                 resolve({
                     errCode: 1,
@@ -128,7 +126,6 @@ let CreateNewUser = (data) => {
                 });
             }
         } catch (e) {
-            console.log("", e);
             reject(e)
         }
     })
@@ -227,6 +224,23 @@ let GetAllCodeService = (typeInput) => {
     })
 }
 
+let StudentByClass = (idLop) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let users = '';
+            users = await db.HocSinhs.findAll({
+                where: {MaLop: idLop},
+                attributes: {
+                    exclude: ['Password']
+                }
+            })
+            resolve(users)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
 module.exports = {
     checkUserEmail: checkUserEmail,
     handleUserLogin: handleUserLogin,
@@ -234,5 +248,6 @@ module.exports = {
     CreateNewUser: CreateNewUser,
     DeleteUser: DeleteUser,
     updateUserData: updateUserData,
-    GetAllCodeService:GetAllCodeService,
+    GetAllCodeService: GetAllCodeService,
+    StudentByClass: StudentByClass
 }
