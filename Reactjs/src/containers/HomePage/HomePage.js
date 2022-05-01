@@ -28,9 +28,9 @@ class HomePage extends Component {
                 <ThongBao
                     settings = {settings}
                 />
-                <MonHoc
+                {/* <MonHoc
                     settings = {settings} 
-                />
+                /> */}
                 <HoatDong
                     settings = {settings}
                 />

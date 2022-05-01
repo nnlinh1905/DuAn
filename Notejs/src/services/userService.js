@@ -234,7 +234,11 @@ let StudentByClass = (idLop) => {
                     exclude: ['Password']
                 }
             })
-            resolve(users)
+            resolve({
+                errCode: 0,
+                errMessage: 'ok',
+                users
+            })
         } catch (e) {
             reject(e)
         }

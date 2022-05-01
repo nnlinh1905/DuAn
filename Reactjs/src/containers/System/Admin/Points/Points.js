@@ -69,9 +69,10 @@ class Ponits extends Component {
     handleGetTeacherByClass = async (event) => {
         await this.handleGetPointsStudentByClass(event.target.value)
         let res = await getStudentByClass(event.target.value)
+        console.log('resne', res)
         if (res && res.errCode == 0) {
             this.setState({
-                SBClass: res.studentArr
+                SBClass: res.users
             })
         }
     }
@@ -201,6 +202,7 @@ class Ponits extends Component {
         const { userInfo } = this.props;
         let { LBT, maLop, SBClass, studentPoints, TenLop} = this.state;
         let arr = LBT.length;
+        console.log('SBClass', SBClass)
         return (
             <>
                 <div className="chairman">Quản Lý Điểm</div>
