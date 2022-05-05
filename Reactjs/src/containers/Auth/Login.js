@@ -4,7 +4,7 @@ import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 import './login.scss';
 import { FormattedMessage } from 'react-intl';
-import { handleLoginApi, handleLoginApi1 } from '../../services/userService';
+import { handleLoginApi, handleLoginApi1, handleLoginApi3 } from '../../services/userService';
 
 class Login extends Component {
     constructor(props) {
@@ -22,6 +22,7 @@ class Login extends Component {
         this.setState({
             username: event.target.value
         })
+
     }
 
     handleOnChangePassword = (event) => {
@@ -37,7 +38,9 @@ class Login extends Component {
         try {
             let data = ''
             if (this.state.check === 'admin') {
-                console.log('đã vào');
+                console.log('data')
+                data = await handleLoginApi3(this.state.username, this.state.password);
+                console.log('data',data)
             } else if (this.state.check === 'teacher') {
                 data = await handleLoginApi1(this.state.username, this.state.password);
             } else {
@@ -79,6 +82,7 @@ class Login extends Component {
 
     render() {
         let { check } = this.state
+        console.log('render', this.state)
         return (
             <div className="login-background">
                 <div className="login-container">

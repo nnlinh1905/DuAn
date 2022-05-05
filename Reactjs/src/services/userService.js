@@ -94,7 +94,7 @@ const saveClass = (data) => {
 const deleteClass = (id) => {
     return axios.delete('/api/delete-class', {
        data: {ID: id},
-    }) 
+    })
 }
 
 const editClass = (InputData) => {
@@ -144,12 +144,20 @@ const getAllPoints = (id) => {
     return axios.get(`/api/get-all-points?id=${id}`);
 }
 
-const GetPointsStudentByClass = (id) => {
-    return axios.get(`/api/get-points-student-by-class?idLop=${id}`);
+const GetPointsStudentByClass = (id, idGV) => {
+    return axios.get(`/api/get-points-student-by-class?idLop=${id}&idGV=${idGV}`);
 }
 
 const GetStudentByClass = (id) => {
     return axios.get(`/api/Get-Student-by-class?idLop=${id}`);
 }
 
-export {GetStudentByClass,GetPointsStudentByClass,getAllPoints,savePoints,getStudentByClass,getClassByTeacher,getEditTeaching,getAllTeaching,nameSubject,teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }
+const GetPointStudent = (id) => {
+    return axios.get(`/api/get-point-student?idHS=${id}`);
+}
+
+const handleLoginApi3 = (email, password) => {
+    return axios.post('/api/login-admin', {email, password});
+}
+
+export {handleLoginApi3,GetPointStudent,GetStudentByClass,GetPointsStudentByClass,getAllPoints,savePoints,getStudentByClass,getClassByTeacher,getEditTeaching,getAllTeaching,nameSubject,teacherByClass,saveAssignment,getTeacherBySubject,editClass,deleteClass,saveClass,allClass,editNews,deleteNews,saveNews,allNews,inforTeacher,editTeacherService,deleteTeacherService,createNewTeacherService,getAllTeachers,handleLoginApi1,getHocSinh, getSubject,editUserService,handleLoginApi,getAllUsers,createNewUserService, deleteUserService,getAllCodeService }

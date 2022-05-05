@@ -32,3 +32,9 @@ export const YesNoObj = {
     YES: 'Y',
     NO: 'N'
 }
+
+export const ROLE = {
+    ADMIN: 'R1',
+    STUDENT: 'R3',
+    TEACHER: 'R2',
+}

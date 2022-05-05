@@ -29,6 +29,10 @@ class HomeHeader extends Component {
         this.props.history.push('/home-about')
     }
 
+    handleViewResultOfStudy = () => {
+        this.props.history.push('/system/learning-results')
+    }
+
     returnToHome = () => {
         if (this.props.history) {
             this.props.history.push(`/home`)
@@ -50,7 +54,7 @@ class HomeHeader extends Component {
                             <div className="child-content" onClick={()=> this.handleViewAbout()}>
                                 <div><b><FormattedMessage id="HomeHeader.About"/></b></div>
                             </div>
-                            <div className="child-content">
+                            <div className="child-content" onClick={()=> this.handleViewResultOfStudy()}>
                                 <div><b><FormattedMessage id="HomeHeader.ResultOfStudy"/></b></div>
                             </div>
                             <div className="child-content" onClick={()=> this.handleViewNews()}>
@@ -92,7 +96,7 @@ class HomeHeader extends Component {
                                     <div className="icon-child"><i className="fas fa-puzzle-piece"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.Activities"/></div>
                                 </div> */}
-                                <div className="option-child">
+                                <div className="option-child" onClick={()=> this.handleViewNews()}>
                                     <div className="icon-child"><i className="far fa-bell"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.Notification"/></div>
                                 </div>

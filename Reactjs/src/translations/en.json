@@ -35,7 +35,7 @@
             "manage-teacher": "Manage Teacher",
             "manage-admin": "Manage Admin",
             "crud": "Crud user",
-            "crud-redux": "Crud redux",
+            "crud-redux": "Manage Student",
             "grade": "Grade",
             "grade-10": "Grade 10",
             "class": "Class",
@@ -61,7 +61,7 @@
             "subject-exercise": "Exercise",
             "subject-it": "Informatics",
             "subject-de": "Defense Education",
-
+            "manage-point-student": "Learning Results",
             "point": "Points",
             "manage-point": "Manage Point",
             "Conduct": "Conduct",

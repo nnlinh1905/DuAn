@@ -1,0 +1,60 @@
+
+
+.chairman{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    color: #0071ba;
+}
+
+.Container{
+    width: 87%;
+    height: auto    ;
+    // border: 1px solid red;
+
+    .content-left{
+        // border: 1px solid blue;
+        padding: 5px;
+
+        .khung{
+            border: 1px solid gray;
+            background-color: #deeffd;
+            height: 665px;
+            padding: 5px;
+
+            .title{
+                text-align: center;
+                color: black;
+            }
+
+            .list-group-item {
+                position: relative;
+                display: block;
+                padding: 0.75rem 1.25rem;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                text-align: justify;
+                font-size: 16px;
+            }
+        }
+    }
+    .content-right{
+        // border: 1px solid yellow;
+        padding: 5px;
+
+        .khung{
+            border: 1px solid gray;
+            background-color: #deeffd;
+            height: 665px;
+            padding: 5px;
+
+            .title{
+                text-align: center;
+                color: black;
+            }
+            
+        }
+    }
+}

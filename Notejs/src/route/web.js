@@ -6,8 +6,9 @@ import SubjectController from "../controllers/subjectController";
 import TeacherController from "../controllers/TeacherController";
 import NewsController from "../controllers/newsController";
 import ClassController from "../controllers/ClassController";
-import TeachingController from "../controllers/TeachingController"
-import PointsController from "../controllers/PointsController"
+import TeachingController from "../controllers/TeachingController";
+import PointsController from "../controllers/PointsController";
+import adminController from "../controllers/adminController";
 
 let Router = express.Router();
 
@@ -73,6 +74,11 @@ let initWebRouter = (app) => {
     Router.post('/api/save-points', PointsController.handleSavePoints);
     Router.get('/api/get-all-points', PointsController.handleGetAllPoints);
     Router.get('/api/get-points-student-by-class', PointsController.handleGetPointsStudentByClass);
+    Router.get('/api/get-point-student', PointsController.handleGetPointsStudent);
+
+
+    //đăng nhập admin
+    Router.post('/api/login-admin', adminController.handleLogin)
     return app.use("/", Router);
 }
 

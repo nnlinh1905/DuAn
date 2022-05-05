@@ -18,6 +18,10 @@ class ThongBao extends Component {
         this.props.getAllNews();
     }
 
+    handleViewNewsNe = () => {
+        this.props.history.push(`/home-news`)
+    }
+
     componentDidUpdate(prevProps, presState, snapshot) {
         if(prevProps.news !== this.props.news){
             this.setState({
@@ -38,7 +42,7 @@ class ThongBao extends Component {
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section"><FormattedMessage id = "thongbao.title"/></span>
-                        <button className = "btn-section"><FormattedMessage id = "thongbao.more"/></button>
+                        <button className = "btn-section" onClick={()=> this.handleViewNewsNe()}><FormattedMessage id = "thongbao.more"/></button>
                     </div>
                     <div className="section-body">
                         <Slider {...this.props.settings}>

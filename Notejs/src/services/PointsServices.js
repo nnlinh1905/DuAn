@@ -82,12 +82,34 @@ let GetAllPoints = (id) => {
     })
 } 
 
-let GetPointsStudentByClass = (idLop) => {
+let GetPointsStudentByClass = (idLop, idGV) => {
     return new Promise(async (resolve, reject) => {
         try {
             let Point = ''
             Point = await db.KiemTras.findAll({
-                where: {MaLop: idLop},
+                where: {MaLop: idLop, MaGV: idGV},
+                include: [
+                    { model: db.GiaoViens, as: 'KiemTraGiaoVien'},
+                    { model: db.HocSinhs, as: 'KiemTraHocSinh'},
+                    { model: db.allcodes, as: 'KiemTraMonHoc' },
+                    { model: db.LopHocs, as: 'KiemTraLop'}
+                ],
+                raw: true,
+                nest: true,
+            })
+            resolve(Point)
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
+let GetPointsStudent = (idHS) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let Point = ''
+            Point = await db.KiemTras.findAll({
+                where: {MaHS: idHS},
                 include: [
                     { model: db.GiaoViens, as: 'KiemTraGiaoVien'},
                     { model: db.HocSinhs, as: 'KiemTraHocSinh'},
@@ -108,5 +130,6 @@ module.exports = {
     studentByClass: studentByClass,
     SavePoints: SavePoints,
     GetAllPoints: GetAllPoints,
-    GetPointsStudentByClass: GetPointsStudentByClass
+    GetPointsStudentByClass: GetPointsStudentByClass,
+    GetPointsStudent: GetPointsStudent,
 }

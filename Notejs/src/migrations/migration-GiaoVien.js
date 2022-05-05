@@ -44,6 +44,9 @@ module.exports = {
       avatar: {
         type: Sequelize.BLOB('long'),
       },
+      Quyen: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

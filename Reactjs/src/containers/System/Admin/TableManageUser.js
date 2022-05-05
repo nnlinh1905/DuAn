@@ -43,7 +43,7 @@ class TableManageUser extends Component {
     handleGetStudentByClass = async (event) => {
         let res = await GetStudentByClass(event.target.value)
         this.setState({
-            TBC: res
+            TBC: res.users,
         })
     }
 
@@ -58,7 +58,7 @@ class TableManageUser extends Component {
             let arrClass = this.props.class
             this.setState({
                 classArr: arrClass,
-                MaLop: arrClass && arrClass.length > 0 ? arrClass[0].id : '',
+                // MaLop: arrClass && arrClass.length > 0 ? arrClass[0].id : '',
             })
         }
     }
@@ -96,12 +96,13 @@ class TableManageUser extends Component {
                         onClick={(event) => this.handleGetStudentByClass(event)}
                         value={MaLop}
                     >
-                    {classs && classs.length > 0 && classs.map((item, index) => {
-                        return (
-                            <option key={index} value={item.id}>{item.TenLop}</option>
-                        )
-                    })}
-                </select>
+                        <option selected>Chọn Lớp</option>
+                        {classs && classs.length > 0 && classs.map((item, index) => {
+                            return (
+                                <option key={index} value={item.id}>{item.TenLop}</option>
+                            )
+                        })}
+                    </select>
                 </div>
 
                 <table id="tableManageUser">

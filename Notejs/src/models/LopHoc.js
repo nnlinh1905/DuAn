@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
 
       LopHocs.belongsTo(models.GiaoViens, { foreignKey: 'ChuNhiem', targetKey: 'id', as: 'LopGiaoVien' })
 
-      LopHocs.hasMany(models.KiemTras, {foreignKey: 'MaLop', as: 'KiemTraLop'})
+      LopHocs.hasMany(models.KiemTras, { foreignKey: 'MaLop', as: 'KiemTraLop' })
+      LopHocs.hasMany(models.HocSinhs, { foreignKey: 'MaLop', as: 'LopHocSinh'}
+    )
     }
   };
     LopHocs.init({

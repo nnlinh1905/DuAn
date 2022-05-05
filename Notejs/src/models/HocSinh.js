@@ -11,9 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       HocSinhs.belongsTo(models.allcodes, { foreignKey: 'NamHoc', targetKey: 'keyMap', as:'NamHocData' })
-      HocSinhs.belongsTo(models.allcodes, { foreignKey: 'MaLop', targetKey: 'keyMap', as:'MaLopData' })
       HocSinhs.belongsTo(models.allcodes, { foreignKey: 'MaTonGiao', targetKey: 'keyMap', as: 'MaTonGiaoData' })
-      HocSinhs.belongsTo(models.allcodes, { foreignKey: 'GioiTinh', targetKey: 'keyMap', as: 'GioiTinhData'})
+      HocSinhs.belongsTo(models.allcodes, { foreignKey: 'GioiTinh', targetKey: 'keyMap', as: 'GioiTinhData' })
+      
+      HocSinhs.belongsTo(models.LopHocs, { foreignKey: 'MaLop', targetKey:'id', as: 'LopHocSinh'})
       //kiemtra
       HocSinhs.hasMany(models.KiemTras, { foreignKey: 'MaHS', as: 'KiemTraHocSinh'})
     }
@@ -34,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     HoTenMe: DataTypes.STRING,
     NamSinhMe: DataTypes.DATE,
     Password: DataTypes.STRING,
+    Quyen: DataTypes.STRING,
     avatar: DataTypes.STRING,
   }, {
     sequelize,

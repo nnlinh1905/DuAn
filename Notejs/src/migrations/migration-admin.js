@@ -1,26 +1,23 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('HocSinhs', {
+    await queryInterface.createTable('Admins', {
       ID: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      NamHoc: {
+      HoTen: {
         type: Sequelize.STRING
       },
-      MaLop: {
+      MaChuyenMon: {
         type: Sequelize.STRING
       },
-      MaXaPhuong: {
+      MaChucDanh: {
         type: Sequelize.STRING
-      },
+      },      
       MaTonGiao: {
-        type: Sequelize.STRING
-      },
-      HoTenHS: {
         type: Sequelize.STRING
       },
       GioiTinh: {
@@ -32,28 +29,13 @@ module.exports = {
       DiaChi: {
         type: Sequelize.STRING,
       },
-      SDT: {
-        type: Sequelize.STRING,
-      },
       Email: {
         type: Sequelize.STRING,
       },
-      HoTenCha: {
+      SDT: {
         type: Sequelize.STRING,
-      },
-      NamSinhCha: {
-        type: Sequelize.DATE,
-      },
-      HoTenMe: {
-        type: Sequelize.STRING,
-      },
-      NamSinhMe: {
-        type: Sequelize.DATE,
       },
       Password: {
-        type: Sequelize.STRING,
-      },
-      avatar: {
         type: Sequelize.STRING,
       },
       Quyen: {
@@ -66,11 +48,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }      
+      },
     });
   },
   
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('HocSinhs');
+    await queryInterface.dropTable('Admins');
   }
 };

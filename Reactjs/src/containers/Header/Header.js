@@ -3,12 +3,42 @@ import { connect } from 'react-redux';
 
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
-import { adminMenu } from './menuApp';
+import { adminMenu, teacherMenu, studentMenu } from './menuApp';
 import './Header.scss';
 import { LANGUAGES } from '../../utils';
 import {FormattedMessage} from 'react-intl';
+import _ from 'lodash'; 
+import {ROLE} from '../../utils'
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            menuApp: []
+        }
+    }
+
+    componentDidMount() {
+        const { userInfo } = this.props;
+        let menu = [];
+        if (userInfo && !_.isEmpty(userInfo)) {
+            let role = userInfo.Quyen;
+            if (role === ROLE.ADMIN) {
+                menu = adminMenu;
+            }
+            if (role === ROLE.TEACHER) {
+                menu = teacherMenu;
+            }
+            if (role === ROLE.STUDENT) {
+                menu = studentMenu;
+            }
+        }
+
+        this.setState({
+            menuApp: menu
+        })
+    }
 
     handleChangeLanguage = (language) => {
         this.props.ChangeLanguageAppReDux(language);
@@ -16,9 +46,12 @@ class Header extends Component {
 
     render() {
         const { processLogout, language, userInfo } = this.props;
+        console.log('userInfo', userInfo)
         let HoTen = '';
         if (userInfo.HoTenHS) {
             HoTen = userInfo.HoTenHS;
+        } else if (userInfo.HoTen) {
+            HoTen = userInfo.HoTen;
         } else {
             HoTen = userInfo.HoTenGV;
         }
@@ -26,7 +59,7 @@ class Header extends Component {
             <div className="header-container">
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
-                    <Navigator menus={adminMenu} />
+                    <Navigator menus={this.state.menuApp} />
                 </div>
                 
                 <div className="Languages">

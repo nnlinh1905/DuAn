@@ -36,7 +36,7 @@
             "manage-teacher": "Quản lý giáo viên",
             "manage-admin": "Quản lý Admin",
             "crud": "Crud user",
-            "crud-redux": "Crud redux",
+            "crud-redux": "Quản Lý Học Sinh",
             "grade": "Khối",
             "class": "Lớp học",
             "manegeClass": "Quản lý lớp học",
@@ -68,7 +68,7 @@
             "manage-Conduct": "Quản Lý hạnh Kiểm",
             "news": "Tin Tức",
             "manage-news": "Quản Lý Tin Tức",
-
+            "manage-point-student": "Kết Quả Học Tập",
 
             "about-teacher": "Thêm Thông Tin Giáo Viên"
         }

@@ -44,7 +44,7 @@ let handleGetAllPoints = async (req, res) => {
 let handleGetPointsStudentByClass = async(req, res) => {
     try {
         let id = req.query.idLop;
-        let Points = await PointsServices.GetPointsStudentByClass(id)
+        let Points = await PointsServices.GetPointsStudentByClass(id, req.query.idGV)
         return res.status(200).json({
             errCode: 0,
             errMessage: "OK",
@@ -56,11 +56,28 @@ let handleGetPointsStudentByClass = async(req, res) => {
             errMessage:'Error from server'
         })
     }
-} 
+}
+
+let handleGetPointsStudent = async (req, res) => {
+    try {
+        let student = await PointsServices.GetPointsStudent(req.query.idHS)
+        return res.status(200).json({
+            errCode: 0,
+            errMessage: "OK",
+            student
+        })
+    } catch (e) {
+        return res.status(200).json({
+            errCode: -1,
+            errMessage:'Error from server'
+        })
+    }
+}
 
 module.exports = {
     handleSavePoints: handleSavePoints,
     handleStudentByClass: handleStudentByClass,
     handleGetAllPoints: handleGetAllPoints,
     handleGetPointsStudentByClass: handleGetPointsStudentByClass,
+    handleGetPointsStudent: handleGetPointsStudent,
 }

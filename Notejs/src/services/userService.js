@@ -23,7 +23,22 @@ let handleUserLogin = (email, password) => {
             if (isExist) {
                 let user = await db.HocSinhs.findOne({
                     where: { Email: email },
+                    include: [
+                        { model: db.allcodes, as: 'GioiTinhData' },
+                        { model: db.allcodes, as: 'MaTonGiaoData' },
+                        { 
+                            model: db.LopHocs, as: 'LopHocSinh',
+                            include: [
+                                { model: db.allcodes, as: 'NamHocNe' },
+                                {model: db.GiaoViens, as: 'LopGiaoVien'},
+                            ],
+                            raw: true,
+                            nest: true,
+                        },
+                        { model: db.allcodes, as: 'NamHocData' },
+                    ],
                     raw: true,
+                    nest: true,
                 })
                 if (user) {
                     let check = await bcrypt.compareSync(password, user.Password)

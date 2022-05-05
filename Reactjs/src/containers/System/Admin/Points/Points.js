@@ -82,7 +82,8 @@ class Ponits extends Component {
     }
 
     handleGetPointsStudentByClass = async (maLop) => {
-        let resPoints = await GetPointsStudentByClass(maLop)
+        let idGV = this.props.userInfo.id
+        let resPoints = await GetPointsStudentByClass(maLop, idGV)
         if (resPoints && resPoints.errCode == 0) {
             this.setState({
                 studentPoints: resPoints.Points
