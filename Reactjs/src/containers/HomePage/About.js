@@ -26,13 +26,7 @@ class About extends Component {
                             </iframe>
                         </div>
                         <div className="content-right">
-                            <p>* Trường THPT Trần Văn Thành tọa lạc tại Thị trấn Cái Dầu, trung tâm huyện Châu Phú, Tỉnh An Giang. Từ ngày thành lập trường đến nay đã đổi địa điểm 2 lần, đổi tên trường 6 lần và thay đổi 10 Hiệu trưởng.
-
-Khoảng cách từ trường đến Quốc lộ 91 khoảng 70m. Trường thu hút con em đa số ở 01 thị trấn, 02 xã ( Thị trấn Cái Dầu, Xã Vĩnh Thạnh Trung, Xã Bình Long). Các lộ ở nông thôn đều tráng nhựa hoặc tráng bê-tông, tạo điều kiện thuận lợi cho giáo viên và HS đến trường được dễ dàng.
-
-* Diện tích toàn trường là 12.717,25 m2, chiều dài trung bình 139,75 m, chiều rộng 91m.
-
-* Năm học 2008 – 2009, trường có 24 lớp, 1058 HS, 74 CB-GV-NV.</p>
+                            <p><h3>Trường <strong>THPT Trần Văn Thành</strong> tọa lạc tại Thị trấn Cái Dầu, trung tâm huyện Châu Phú, Tỉnh An Giang. Từ ngày thành lập trường đến nay đã đổi địa điểm 2 lần, đổi tên trường 6 lần và thay đổi 10 Hiệu trưởng.Khoảng cách từ trường đến Quốc lộ 91 khoảng 70m.</h3> <h4>Trường thu hút con em đa số ở 01 thị trấn, 02 xã ( Thị trấn Cái Dầu, Xã Vĩnh Thạnh Trung, Xã Bình Long). Các lộ ở nông thôn đều tráng nhựa hoặc tráng bê-tông, tạo điều kiện thuận lợi cho giáo viên và HS đến trường được dễ dàng.</h4> <h4>Diện tích toàn trường là 12.717,25 m2, chiều dài trung bình 139,75 m, chiều rộng 91m. Năm học 2008 – 2009, trường có 24 lớp, 1058 HS, 74 CB-GV-NV.</h4></p>
                         </div>
                     </div>
                 </div>

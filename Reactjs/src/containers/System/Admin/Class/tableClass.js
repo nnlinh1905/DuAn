@@ -54,6 +54,7 @@ class tableClass extends Component {
 
     render() {
         let arrClass = this.state.classReducer;
+        console.log(arrClass)
         return (
             <React.Fragment>
                 <table id="tableManageUser">
@@ -70,7 +71,7 @@ class tableClass extends Component {
                             return (
                                 <tr key={index}>
                                     <td>{item.TenLop}</td>
-                                    <td>{item.NamHoc}</td>
+                                    <td>{item.NamHocNe.valueVi}</td>
                                     <td>{item.MaKhoi}</td>
                                     <td><button className='btn-edit' onClick={()=>this.handleEdit(item)}><i className="fas fa-edit"></i></button></td>
                                     <td><button className='btn-delete' onClick={()=>this.handleDelete(item)}><i className="fas fa-trash-alt"></i></button></td>

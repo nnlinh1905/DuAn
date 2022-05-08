@@ -111,6 +111,7 @@ class Chairman extends Component {
     }
 
     handleEdit = async (data) => {
+        // await this.handleGetTeacher(data.id);
         if (data) {
             this.setState({
                 action: CRUD_ACTIONS.EDIT,

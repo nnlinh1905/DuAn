@@ -234,7 +234,7 @@ class Teacher extends Component {
         return (
             <div className="user-redux-container">
                 <div className="title">
-                    <FormattedMessage id="admin.manage-teacher"/>
+                    <FormattedMessage id="menu.admin.manage-teacher"/>
                 </div>
                 <div>{isLoadingGender === true ? 'Loading genders': ''}</div>
                 <div className="user-redux-body">

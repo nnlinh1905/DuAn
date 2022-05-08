@@ -77,10 +77,10 @@ class HomeHeader extends Component {
                             <div className="title2">
                                 <FormattedMessage id="banner.TRITHUCHIGHSCHOOL"/>
                             </div>
-                            <div className="search">
+                            {/* <div className="search">
                                 <i className="fas fa-search"></i>
                                 <input type="text" placeholder="bạn tìm kiếm gì?"/>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="content-down">
                             <div className="options">

@@ -48,18 +48,18 @@ export const adminMenu = [
             }
         ]
     },
-    { //Quản Lý Điểm
-        name: 'menu.admin.point',
-        menus: [
-            {
-                name: "menu.admin.manage-point", link: '/system/points'
-            },
-            {
-                name: "menu.admin.manage-point-student", link: '/system/learning-results'
-            }
+    // { //Quản Lý Điểm
+    //     name: 'menu.admin.point',
+    //     menus: [
+    //         {
+    //             name: "menu.admin.manage-point", link: '/system/points'
+    //         },
+    //         {
+    //             name: "menu.admin.manage-point-student", link: '/system/learning-results'
+    //         }
             
-        ]
-    },
+    //     ]
+    // },
     { //Quản Lý Tin Tức
         name: 'menu.admin.news',
         menus: [
